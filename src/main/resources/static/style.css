@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+}
+
+#buttonGo {
+    position: absolute;
+    left:570px;
+    top:300px;
+}
