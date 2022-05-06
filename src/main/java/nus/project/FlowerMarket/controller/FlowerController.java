@@ -26,7 +26,7 @@ public class FlowerController {
     @Autowired
     private PostRepository postRepo;
 
-    //This is the welcome page
+    // This is the welcome page
     @GetMapping(path="/welcome")
     public ModelAndView getWelcome() {
         
@@ -37,7 +37,7 @@ public class FlowerController {
         return mvc;
     }
 
-    //This is to redirect to Home page
+    // This is to redirect to Home page
     @GetMapping(path="/home")
     public ModelAndView getHome() {
         
@@ -48,7 +48,7 @@ public class FlowerController {
         return mvc;
     }
 
-    //This is to redirect to About page
+    // This is to redirect to About page
     @GetMapping(path="/about")
     public ModelAndView getAbout() {
         
@@ -59,50 +59,50 @@ public class FlowerController {
         return mvc; 
     }
 
-        //This is to redirect to Community page
-        @GetMapping(path="/community")
-        public ModelAndView getCommunity() {
+    // This is to redirect to Community page
+    @GetMapping(path="/community")
+    public ModelAndView getCommunity() {
             
-            ModelAndView mvc = new ModelAndView();
+        ModelAndView mvc = new ModelAndView();
             
-            mvc.setViewName("community");
-            mvc.setStatus(HttpStatus.OK);
-            return mvc; 
-        }
+        mvc.setViewName("community");
+        mvc.setStatus(HttpStatus.OK);
+        return mvc; 
+    }
 
     // @GetMapping(path="/search")
     // public ModelAndView getSearch(@RequestParam (name= "flower_name") String)
 
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ModelAndView getPost(@RequestParam MultipartFile image,
-    @RequestPart String comment, 
-    @RequestPart String poster) {
+    // @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    // public ModelAndView getPost(@RequestParam MultipartFile image,
+    // @RequestPart String comment, 
+    // @RequestPart String poster) {
 
-        ModelAndView mvc = new ModelAndView();
+    //     ModelAndView mvc = new ModelAndView();
     
-        String imageName = image.getOriginalFilename();
-        long imageSize = image.getSize();
-        String imageType = image.getContentType();
-        byte[] buff = new byte[0];
+    //     String imageName = image.getOriginalFilename();
+    //     long imageSize = image.getSize();
+    //     String imageType = image.getContentType();
+    //     byte[] buff = new byte[0];
 
-        try {
-            buff = image.getBytes();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    //     try {
+    //         buff = image.getBytes();
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
 
-        Flower f = new Flower();
-        f.setImage(buff);
-        f.setComment(comment);
-        f.setPoster(poster);
-        f.setImageType(imageType); 
+    //     Flower f = new Flower();
+    //     f.setImage(buff);
+    //     f.setComment(comment);
+    //     f.setPoster(poster);
+    //     f.setImageType(imageType); 
         
-        mvc.setViewName("community");
-        Integer updCount = postRepo.insertPost(f);
-        mvc.addObject("updateCount", updCount);
-        mvc.setStatus(HttpStatus.OK);
-        return mvc; 
-    
-    }
+    //     mvc.setViewName("result");
+    //     Integer updCount = postRepo.insertPost(f);
+    //     mvc.addObject("updateCount", updCount);
+    //     mvc.setStatus(HttpStatus.OK);
+        
+    //     return mvc;
+    // }
 }

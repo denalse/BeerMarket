@@ -8,3 +8,23 @@ h1 {
     top:300px;
 }
 
+/* Setting background wallpaer for Home page */
+#welcome {
+    background-image:url('images/welcomebg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Setting background wallpaer for About page */
+#about {
+    background-image:url('images/aboutbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Setting background wallpaer for Community page */
+#community {
+    background-image:url('images/combg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
