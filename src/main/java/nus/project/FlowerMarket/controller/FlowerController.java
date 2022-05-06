@@ -37,7 +37,7 @@ public class FlowerController {
         return mvc;
     }
 
-    //Thus is to redirect to About page
+    //This is to redirect to About page
     @GetMapping(path="/about")
     public ModelAndView getAbout() {
         
@@ -47,6 +47,17 @@ public class FlowerController {
         mvc.setStatus(HttpStatus.OK);
         return mvc; 
     }
+
+        //This is to redirect to Community page
+        @GetMapping(path="/community")
+        public ModelAndView getCommunity() {
+            
+            ModelAndView mvc = new ModelAndView();
+            
+            mvc.setViewName("community");
+            mvc.setStatus(HttpStatus.OK);
+            return mvc; 
+        }
 
     // @GetMapping(path="/search")
     // public ModelAndView getSearch(@RequestParam (name= "flower_name") String)

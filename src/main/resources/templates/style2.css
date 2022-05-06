@@ -1,7 +1,21 @@
-body {
-    background-image:url('images/background.png');
+/* Setting background wallpaer for Home page */
+#welcome {
+    background-image:url('images/welcomebg.png');
     background-size: cover;
 }
+
+/* Setting background wallpaer for About page */
+#about {
+    background-image:url('images/aboutbg.png');
+    background-size: cover;
+}
+
+
+
+
+
+
+
 
 /* html { 
     background: url(images/background.png) no-repeat center center fixed; 

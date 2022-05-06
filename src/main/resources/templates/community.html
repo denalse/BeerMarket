@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Community</title>
 
     <link rel="stylesheet"  href="./style2.css" type="text/css">
 
@@ -17,23 +17,53 @@
 
     
 </head>
-<body id="about">
+<body id="community">
     <div class="container">
         <div class="row">
             <div class="col">
                 <form action="/about" method= "GET" class="mt-5">
                     
-                    <h3 class="display-6">Getting to know the Flower Market Community</h3>
+                    <h3 class="display-6">Hey Lovelies, Sharing is Caring!</h3>
                     
                     <figure>
                         <blockquote class="blockquote mt-3 ml-3">
-                          <p>Flowers are like friends; They bring color to your world.</p>
+                          <p>"Flowers always make people better, happier, and more helpful; they are sunshine, food and medicine for the soul."</p>
                         </blockquote>
                         <figcaption class="blockquote-footer ml-3">
-                          From <cite title="Source Title">The Flower Club</cite>
+                          From <cite title="Source Title">Luther Burbank</cite>
                         </figcaption>
                       
                     </figure>
+                </form>
+                    <br>
+                    <br>
+                    <br>
+                <form  action="/community/post" method="POST" enctype="multipart/form-data" accept="image/*">
+                    <table>
+                        <tr>
+                            <td>Image: </td>
+                            <td>
+                                <input type="file" name="image" id="" class="mb-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Comment: </td>
+                            <td>
+                                <textarea name="comment" id="" cols="30" rows="4"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Poster: </td>
+                            <td>
+                                <input type="text" name="poster" id="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <button type="submit" class="mt-1 mr-3">Submit</button>
+                            </td>
+                        </tr>
+                    </table>
                 </form>
             </div>
         </div>
