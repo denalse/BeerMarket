@@ -21,9 +21,9 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form action="/community" method= "POST" class="mt-5">
+                <!-- <form action="/community" method= "GET" class="mt-5" > -->
                     
-                    <h3 class="display-6">Hey Flowerlies, Sharing is Caring!</h3>
+                    <h3 class="display-6 mt-5">Hey Flowerlies, Sharing is Caring!</h3>
                     
                     <figure>
                         <blockquote class="blockquote mt-3 ml-3">
@@ -34,7 +34,7 @@
                         </figcaption>
                       
                     </figure>
-                </form>
+                <!-- </form> -->
                     <br>
                     <br>
                     <br>
@@ -43,25 +43,28 @@
                         <tr>
                             <td>Image: </td>
                             <td>
-                                <input type="file" name="image" id="" class="mb-1">
+                                <input type="file" name="image" id="" class="mb-1 ml-1">
                             </td>
                         </tr>
                         <tr>
                             <td>Comment: </td>
                             <td>
-                                <textarea name="comment" id="" cols="30" rows="4"></textarea>
+                                <textarea name="comment" id="" cols="30" rows="4" class="ml-1"></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>Poster: </td>
                             <td>
-                                <input type="text" name="poster" id="">
+                                <input type="text" name="poster" id="" class="ml-1">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                               <button type="submit" class="mt-1 mr-3">Submit</button>
+                               <button type="submit" id="back" class="mt-2 ml-1">Back</button>
                             </td>
+                            <td>
+                                <button type="submit" class="mt-2 ml-1">Submit</button>
+                             </td>
                         </tr>
                     </table>
                 </form>

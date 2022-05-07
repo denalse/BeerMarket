@@ -2,6 +2,7 @@ h1 {
     text-align: center;
 }
 
+/* Setting the button style */
 #buttonGo {
     position: absolute;
     left:800px;

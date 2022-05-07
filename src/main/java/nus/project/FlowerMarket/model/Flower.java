@@ -53,9 +53,6 @@ public class Flower {
         post.setImageType(rs.getString("mediatype"));
         post.setPostId(rs.getInt("post_id"));
         return post;
-
     }
 
-
-    
 }
