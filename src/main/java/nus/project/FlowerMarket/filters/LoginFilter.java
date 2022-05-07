@@ -26,15 +26,14 @@ public class LoginFilter implements Filter{
         //Get back the HTTP session
         HttpSession sess = httpReq.getSession();
         String username = (String)sess.getAttribute("username");
-
+ 
+        System.out.printf(">>>> url: %s\n", httpReq.getRequestURI().toString());
+        System.out.printf(">>>> url: %s\n", sess.getAttribute("username"));
 
         if ((null == username) || (username.trim().length() <=0 )) {
             httpResp.sendRedirect("/");
             return;
         }
-
-        System.out.printf(">>>> url: %s\n", httpReq.getRequestURI().toString());
-        System.out.printf(">>>> url: %s\n", sess.getAttribute("username"));
 
         chain.doFilter(request, response);
 

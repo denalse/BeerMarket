@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import nus.project.FlowerMarket.model.Flower;
+import nus.project.FlowerMarket.model.Post;
 import nus.project.FlowerMarket.repository.PostRepository;
 
 @Controller
@@ -34,7 +34,7 @@ public class PostController {
     public ModelAndView getPostById(@PathVariable Integer postId) {
         
         ModelAndView mvc = new ModelAndView();
-        Optional<Flower> opt = postRepo.getPostById(postId);
+        Optional<Post> opt = postRepo.getPostById(postId);
         mvc.addObject("post", opt.get());
         mvc.setViewName("post");
         mvc.setStatus(HttpStatus.OK);
@@ -64,13 +64,13 @@ public class PostController {
             ex.printStackTrace();
         }
 
-        Flower f = new Flower();
+        Post f = new Post();
         f.setImage(buff);
         f.setComment(comment);
         f.setPoster(poster);
         f.setImageType(imageType); 
         
-        mvc.setViewName("result");
+        mvc.setViewName("postresult");
         Integer updCount = postRepo.insertPost(f);
         mvc.addObject("updateCount", updCount);
         mvc.setStatus(HttpStatus.OK);

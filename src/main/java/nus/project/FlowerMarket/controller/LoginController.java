@@ -1,54 +1,60 @@
-package nus.project.FlowerMarket.controller;
+// package nus.project.FlowerMarket.controller;
 
-import javax.servlet.http.HttpSession;
+// import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.servlet.ModelAndView;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.http.HttpStatus;
+// import org.springframework.stereotype.Controller;
+// import org.springframework.util.MultiValueMap;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
+// import org.springframework.web.servlet.ModelAndView;
 
-import nus.project.FlowerMarket.service.LoginService;
+// import nus.project.FlowerMarket.service.LoginService;
 
-@Controller
-public class LoginController {
+// @Controller
+// public class LoginController {
 
-    @Autowired
-    private LoginService loginSvc;
+//     @Autowired
+//     private LoginService loginSvc;
     
-    @GetMapping
-    public String getLogout(HttpSession sess) {
-        sess.invalidate();
-        return "index";
-    }
+//     @GetMapping("/login")
+//     public String getLogin() {
 
-    @PostMapping(path="/login/authenticate")
-    public ModelAndView addLogin(@RequestBody MultiValueMap<String,String> payload) {
+//         return "login";
+//     }
+
+//     @GetMapping
+//     public String getLogout(HttpSession sess) {
+//         sess.invalidate();
+//         return "index";
+//     }
+
+//     @PostMapping(path="/authenticate")
+//     public ModelAndView addLogin(@RequestBody MultiValueMap<String,String> payload) {
         
-        String username = payload.getFirst("username");
-        String password = payload.getFirst("password");
+//         String username = payload.getFirst("username");
+//         String password = payload.getFirst("password");
 
-        System.out.printf("+++ username: %s, password: %s\n", username, password);
+//         System.out.printf("+++ username: %s, password: %s\n", username, password);
 
-        ModelAndView mvc = new ModelAndView();
+//         ModelAndView mvc = new ModelAndView();
 
-        if (!loginSvc.authenticate(username, password)) {
+//         if (!loginSvc.authenticate(username, password)) {
             
-            //not successfull
-            mvc.setViewName("error");
-            mvc.setStatus(HttpStatus.FORBIDDEN);
+//             //not successfull
+//             mvc.setViewName("error");
+//             mvc.setStatus(HttpStatus.FORBIDDEN);
 
-        } else {
+//         } else {
            
-            //successful
-            mvc.setViewName("hello");
-            mvc.setStatus(HttpStatus.OK);
-            mvc.addObject("username", username);
-        }
+//             //successful
+//             mvc.setViewName("hello");
+//             mvc.setStatus(HttpStatus.OK);
+//             mvc.addObject("username", username);
+//         }
 
-        return mvc;
-    }
-}
+//         return mvc;
+//     }
+// }

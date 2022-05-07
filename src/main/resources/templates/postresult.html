@@ -7,6 +7,10 @@
     <title>Post Success!</title>
 </head>
 <body>
-    <h1>Uploaded: <span data-th-text="${updCount}"></span></h1>
+    <h1>Uploaded: <span data-th-text="${updateCount}"></span></h1>
+
+    <form action="/">
+        <input type="button" value="Go back" id="back1" class="mt-2 ml-1" onclick="history.back()">
+    </form>
 </body>
 </html>

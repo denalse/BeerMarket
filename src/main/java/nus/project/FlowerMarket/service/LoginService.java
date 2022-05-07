@@ -16,5 +16,8 @@ public class LoginService {
         // String yes = Integer.parseInt(username);
         String yes = new String(username);
         return yes == loginRepo.getLogin(username);
+    
+    // return 1 == loginRepo.countUsersByNameAndPassword(username, password);
     }
 }
+

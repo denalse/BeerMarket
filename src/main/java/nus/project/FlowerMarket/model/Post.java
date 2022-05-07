@@ -3,7 +3,7 @@ package nus.project.FlowerMarket.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Flower {
+public class Post {
     private String poster;
     private String comment;
     private String imageType;
@@ -45,8 +45,8 @@ public class Flower {
         this.postId = postId;
     }
 
-    public static Flower populate(ResultSet rs) throws SQLException {
-        final Flower post  = new Flower();
+    public static Post populate(ResultSet rs) throws SQLException {
+        final Post post  = new Post();
         post.setImage(rs.getBytes("photo"));
         post.setComment(rs.getString("comment"));
         post.setPoster(rs.getString("poster"));
