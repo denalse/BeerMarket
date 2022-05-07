@@ -32,22 +32,17 @@ h1 {
     text-align: center;
 }
 
-/* Setting the button style */
+/* Setting the CLick here to Enter! button */
 #buttonGo {
     position: absolute;
-    left:800px;
-    top:300px;
+    top: 45%;
+    left: 45%;
+    padding: 1%;
+    border: 3px solid rgb(197, 236, 197);
+    color: rgb(17, 15, 13);
+    background-color: rgb(201, 198, 186)
 }
 
-Setting the LOGIN button style
-#buttonLogin {
-    /* position: absolute; */
-    /* float:center;
-    padding: 3px 15px;
-    text-align: left */
-    /* display: inline-block; */
-    
-}
 
 /* Setting background wallpaer for Home page */
 #welcome {
@@ -58,14 +53,14 @@ Setting the LOGIN button style
 
 /* Setting background wallpaer for About page */
 #about {
-    background-image:url('images/aboutbg.png');
+    background-image:url('images/welcomebg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 /* Setting background wallpaer for Community page */
 #community {
-    background-image:url('images/combg.png');
+    background-image:url('images/welcomebg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -74,9 +69,73 @@ Setting the LOGIN button style
 #login {
     background-image:url('images/loginbg.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 }
 
+/* Styling for username */
+#username {
+    text-align:center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Styling for password */
+#password {
+    text-align:center;
+    margin: 0;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Styling for Submit button */
+#buttonLogin {
+    text-align:center;
+    margin: 100;
+    position: absolute;
+    top: 1060%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Styling for login button on hover*/
+#buttonLogin:hover {
+    background: #589fd6;
+    color: #fff;
+    border: 1px solid #eee;
+    /* border-radius: 20px; */
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+}
+
+
+/* Styling for back button */
+#back {
+    text-align:center;
+    margin: 0;
+    position: absolute;
+    top: 1500%;
+    left: 49.7%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Styling for back button on hover */
+#back:hover {
+    background: #4d5358;
+    color: #fff;
+    border: 1px solid #eee;
+    /* border-radius: 20px; */
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+}
 
 #z1 {
     position : relative;

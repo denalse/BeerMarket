@@ -59,7 +59,7 @@ public class FlowerController {
         return mvc; 
     }
 
-    // This is to redirect to Community page
+    // This is to redirect to Login page
     @GetMapping(path="/login")
     public ModelAndView getLogin() {
             
