@@ -1,3 +1,33 @@
+/* Setting a black background color to the top navigation */
+.navbar {
+    background-color: rgb(158, 196, 204);
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 25%; /* Position the navbar at the top of the page */
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+    float: left;
+    color: #050404;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Style to change color of links on hover */
+.navbar a:hover {
+    background-color: rgb(240, 102, 102);
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #04AA6D;
+    color: rgb(255, 255, 255);
+  }
+
 h1 {
     text-align: center;
 }
@@ -7,6 +37,16 @@ h1 {
     position: absolute;
     left:800px;
     top:300px;
+}
+
+Setting the LOGIN button style
+#buttonLogin {
+    /* position: absolute; */
+    /* float:center;
+    padding: 3px 15px;
+    text-align: left */
+    /* display: inline-block; */
+    
 }
 
 /* Setting background wallpaer for Home page */
@@ -29,3 +69,54 @@ h1 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* Setting background wallpaer for Login page */
+#login {
+    background-image:url('images/loginbg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#z1 {
+    position : relative;
+    width:200px;
+    height:200px;
+    z-index:-1;
+}
+
+#z2 {
+    position : relative;
+    width:200px;
+    height:200px;
+    z-index:-1;
+}
+
+#z3 {
+    position : relative;
+    width:200px;
+    height:200px;
+    z-index:-1;
+}
+
+#z4 {
+    position : relative;
+    width:200px;
+    height:200px;
+    z-index:-1;
+}
+
+#z5 {
+    position : relative;
+    width:200px;
+    height:200px;
+    z-index:-1;
+}
+
+#z6 {
+    position : relative;
+    width:200px;
+    height:200px;
+    z-index:-1;
+}
+

@@ -28,7 +28,7 @@ public class PostRepository {
             } , postId);
     }
 
-    //insert post data to the social media table
+    //insert post data to the flower post table
     public Integer insertPost(Flower post) {
        Integer updCount =  temp.update(SQL_INSERT_POST, 
                                 post.getImage(),

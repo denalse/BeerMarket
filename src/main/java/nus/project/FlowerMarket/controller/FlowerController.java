@@ -59,6 +59,17 @@ public class FlowerController {
         return mvc; 
     }
 
+    // This is to redirect to Community page
+    @GetMapping(path="/login")
+    public ModelAndView getLogin() {
+            
+        ModelAndView mvc = new ModelAndView();
+            
+        mvc.setViewName("login");
+        mvc.setStatus(HttpStatus.OK);
+        return mvc; 
+    }
+
     // @GetMapping(path="/search")
     // public ModelAndView getSearch(@RequestParam (name= "flower_name") String)
 

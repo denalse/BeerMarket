@@ -2,7 +2,12 @@
 # name: Compile, test, deploy
 # on: [ "push" ]
 # env:
-#   GIPHY_API_KEY: ${{ secrets.giphy_api_key }}
+  # GIPHY_API_KEY: ${{ secrets.giphy_api_key }}
+
+  # SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+  # SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+  # SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
+  # SPRING_DATASOURCE_DRIVER_CLASS_NAME: ${{ secrets.SPRING_DATASOURCE_DRIVER_CLASS_NAME }}
 # jobs:
 #   step1:
 #     runs-on: ubuntu-latest
