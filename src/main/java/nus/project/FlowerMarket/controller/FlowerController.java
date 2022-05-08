@@ -105,9 +105,9 @@ public class FlowerController {
         } else {
             //successful
             //
-            mvc.setViewName("showLogin");
             mvc.setStatus(HttpStatus.OK);
             mvc.addObject("username", username);
+            mvc.setViewName("showLogin");
         }
 
         return mvc;
