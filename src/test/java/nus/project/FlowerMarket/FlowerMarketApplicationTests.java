@@ -12,6 +12,7 @@ class FlowerMarketApplicationTests {
 	void contextLoads() {
 	}
 
+	//test for new post (passed)
 	@Test
 	void testNewPost(){
 		Post p = new Post();
@@ -23,6 +24,7 @@ class FlowerMarketApplicationTests {
 		
 	}
 
+	//test to get values from the post (passed)
 	@Test
 	void testGetValuesPost(){
 		Post p = new Post();

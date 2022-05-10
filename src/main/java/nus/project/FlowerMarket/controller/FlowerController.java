@@ -81,6 +81,15 @@ public class FlowerController {
         return mvc; 
     }
 
+    @GetMapping(path="/register")
+    public ModelAndView getRegister() {
+            
+        ModelAndView mvc = new ModelAndView();
+            
+        mvc.setViewName("register");
+        mvc.setStatus(HttpStatus.OK);
+        return mvc; 
+    }
     //     @GetMapping
     //     public String getLogout(HttpSession sess) {
     //         sess.invalidate();
