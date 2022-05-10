@@ -37,16 +37,16 @@ public class FlowerController {
         return mvc;
     }
 
-    // This is to redirect to Home page
-    @GetMapping(path="/home")
-    public ModelAndView getHome() {
-        
-        ModelAndView mvc = new ModelAndView();
-        
-        mvc.setViewName("welcome");
-        mvc.setStatus(HttpStatus.OK);
-        return mvc;
-    }
+        // This is the welcome page
+        @GetMapping(path="/home")
+        public ModelAndView getHome() {
+            
+            ModelAndView mvc = new ModelAndView();
+            
+            mvc.setViewName("welcome");
+            mvc.setStatus(HttpStatus.OK);
+            return mvc;
+        }
 
     // This is to redirect to About page
     @GetMapping(path="/about")
