@@ -1,12 +1,31 @@
+          
+    function verifyPassword() {
+        var x = document.getElementById("id_password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+      
+      
+    const image_input = document.querySelector("#image_input");
+    
+    var uploaded_image = "";
 
-    const togglePassword = document.querySelector('#togglePassword');
-    const password = document.querySelector('#id_password');
-   
-    togglePassword.addEventListener('click', function (e) {
-      // toggle the type attribute
-      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-      password.setAttribute('type', type);
-      // toggle the eye slash icon
-      this.classList.toggle('fa-eye-slash');
-    });
+    image_input.addEventListener("change", function() {
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          uploaded_image = reader.result;
+          document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
+        // console.log(image_input.value);
+        });
+        reader.readAsDataURL(this.files[0]);
+      })
+
+    
+    
+
+
+
     

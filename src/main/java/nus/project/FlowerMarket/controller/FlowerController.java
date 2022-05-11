@@ -90,37 +90,37 @@ public class FlowerController {
         mvc.setStatus(HttpStatus.OK);
         return mvc; 
     }
-    //     @GetMapping
-    //     public String getLogout(HttpSession sess) {
-    //         sess.invalidate();
-    //         return "index";
-    // }
-
-    @PostMapping(path="/authenticate")
-    public ModelAndView addLogin(@RequestBody MultiValueMap<String,String> payload) {
-        
-        String username = payload.getFirst("username");
-        String password = payload.getFirst("password");
-
-        System.out.printf("+++ username: %s, password: %s\n", username, password);
-
-        ModelAndView mvc = new ModelAndView();
-
-        if (!loginSvc.authenticate(username, password)) {
-            //not successfull
-            mvc.setViewName("error");
-            mvc.setStatus(HttpStatus.FORBIDDEN);
-
-        } else {
-            //successful
-            //
-            mvc.setStatus(HttpStatus.OK);
-            mvc.addObject("username", username);
-            mvc.setViewName("showLogin");
-        }
-
-        return mvc;
+        @GetMapping
+        public String getLogout(HttpSession sess) {
+            sess.invalidate();
+            return "index";
     }
+
+    // @PostMapping(path="/login")
+    // public ModelAndView addLogin(@RequestBody MultiValueMap<String,String> payload) {
+        
+    //     String username = payload.getFirst("username");
+    //     String password = payload.getFirst("password");
+
+    //     System.out.printf("+++ username: %s, password: %s\n", username, password);
+
+    //     ModelAndView mvc = new ModelAndView();
+
+    //     if (!loginSvc.authenticate(username, password)) {
+    //         //not successfull
+    //         mvc.setViewName("error");
+    //         mvc.setStatus(HttpStatus.FORBIDDEN);
+
+    //     } else {
+    //         //successful
+    //         //
+    //         mvc.setStatus(HttpStatus.OK);
+    //         mvc.addObject("username", username);
+    //         mvc.setViewName("showLogin");
+    //     }
+
+    //     return mvc;
+    // }
     // @GetMapping(path="/search")
     // public ModelAndView getSearch(@RequestParam (name= "flower_name") String)
 

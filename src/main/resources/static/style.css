@@ -6,17 +6,22 @@ html {
     background-size: cover;
   }
 
+/* #navmenu {
+    position: fixed !important;
+} */
+
 /* Setting a black background color to the top navigation */
 .navbar {
+    position: fixed; /* Set the navbar to fixed position */
+    display: inline-block;
     background-color: rgb(158, 196, 204);
     overflow: hidden;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 25%; /* Position the navbar at the top of the page */
+    top: 30%; /* Position the navbar at the top of the page */
 }
 
 /* Style the links inside the navigation bar */
 .navbar a {
-    float: left;
+    
     color: #050404;
     text-align: center;
     padding: 14px 16px;
@@ -42,7 +47,7 @@ h1 {
 
 /* Setting the CLick here to Enter! button */
 #buttonGo {
-    position: absolute;
+    /* position: absolute; */
     top: 45%;
     left: 45%;
     padding: 1%;
@@ -62,11 +67,13 @@ body {
     margin:0%
 }
 
-/* Setting the styling for the gif in welcome page */
+/* Setting the styling for the gif (center) in welcome page */
 #gif1 {
+    /* margin: 150px 50px 50px 150px; */
+    padding-top: 8%;
     background-color: transparent;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,12 +93,18 @@ body {
     background-repeat: no-repeat;
 }
 
+.center {
+    text-align: center;
+    bottom: 10%;
+    font-size: 29px;
+}
+
 
 /* Styling for username */
 #username {
     text-align:center;
     margin: 0;
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
@@ -102,7 +115,7 @@ body {
 #password {
     text-align:center;
     margin: 0;
-    position: absolute;
+    /* position: absolute; */
     top: 80%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
@@ -113,7 +126,7 @@ body {
 #buttonLogin {
     text-align:center;
     margin: 100;
-    position: absolute;
+    /* position: absolute; */
     top: 1060%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
@@ -135,7 +148,7 @@ body {
 #back {
     text-align:center;
     margin: 0;
-    position: absolute;
+    /* position: absolute; */
     top: 1500%;
     left: 49.7%;
     -ms-transform: translate(-50%, -50%);
@@ -152,45 +165,15 @@ body {
     text-shadow: none;
 }
 
-#z1 {
-    position : relative;
-    width:200px;
-    height:200px;
-    /* z-index:-1; */
+.imgContainer {
+    float: left;
+    padding: 40px;
+    display: inline;
 }
-
-#z2 {
-    position : relative;
-    width:200px;
-    height:200px;
-    /* z-index:-1; */
-}
-
-#z3 {
-    position : relative;
-    width:200px;
-    height:200px;
-    /* z-index:-1; */
-}
-
-#z4 {
-    position : relative;
-    width:200px;
-    height:200px;
-    /* z-index:-1; */
-}
-
-#z5 {
-    position : relative;
-    width:200px;
-    height:200px;
-    /* z-index:-1; */
-}
-
-#z6 {
-    position : relative;
-    width:200px;
-    height:200px;
-    /* z-index:-1; */
-}
+/* 
+#page {
+    position: relative;
+    margin: auto;
+    display: block;
+} */
 
