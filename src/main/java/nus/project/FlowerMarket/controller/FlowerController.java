@@ -18,13 +18,16 @@ import org.springframework.web.servlet.ModelAndView;
 import nus.project.FlowerMarket.service.LoginService;
 
 @Controller
-@RequestMapping(path="/")
+@RequestMapping //(path="/")
 public class FlowerController {
     
-    @Autowired
-    private LoginService loginSvc;
+    // @Autowired
+    // private LoginService loginSvc;
     // private Logger logger = LoggerFactory.getLogger(FlowerController.class);
 
+    public String view() {
+        return "index";
+    }
 
     // This is the welcome page
     @GetMapping(path="/welcome")
@@ -90,11 +93,12 @@ public class FlowerController {
         mvc.setStatus(HttpStatus.OK);
         return mvc; 
     }
-        @GetMapping
-        public String getLogout(HttpSession sess) {
-            sess.invalidate();
-            return "index";
-    }
+
+    // @GetMapping
+    //     public String getLogout(HttpSession sess) {
+    //         sess.invalidate();
+    //         return "welcome";
+    // }
 
     // @PostMapping(path="/login")
     // public ModelAndView addLogin(@RequestBody MultiValueMap<String,String> payload) {
