@@ -62,13 +62,13 @@ public class FlowerController {
         return mvc; 
     }
 
-    // This is to redirect to Community page
-    @GetMapping(path="/community")
-    public ModelAndView getCommunity() {
+    // This is to redirect to D'Market Place page
+    @GetMapping(path="/market")
+    public ModelAndView getMarket() {
             
         ModelAndView mvc = new ModelAndView();
             
-        mvc.setViewName("community");
+        mvc.setViewName("market");
         mvc.setStatus(HttpStatus.OK);
         return mvc; 
     }

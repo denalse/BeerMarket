@@ -33,7 +33,7 @@ public class LoginController {
 //         return "index";
 //     }
 
-    @PostMapping(path="/")
+    @PostMapping(path="/login")
     public ModelAndView goLogin(@RequestBody MultiValueMap<String,String> payload) {
         
         String username = payload.getFirst("username");

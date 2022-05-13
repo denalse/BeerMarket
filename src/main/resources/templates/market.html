@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community</title>
+    <title>D'Market Place</title>
 
     <link rel="stylesheet"  href="style.css" type="text/css">
+    <!-- <script type="text/javascript" src="style.js"></script> -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
@@ -15,10 +16,11 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="style.js"></script>
+    
 
     
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -26,7 +28,7 @@
                 <div class="navbar">
                     <a href="welcome">Home</a>
                     <a href="about">About Us</a>
-                    <a href="community">The Community</a>
+                    <a href="market">D'MarketPlace</a>
                         <div class="navbar">
                             <input type="text" placeholder="Search for flower" data-inline="true">
                             <button type="submit" class="btn btn-danger ml-3">
@@ -67,13 +69,17 @@
                         <tr>
                             <td>Image: </td>
                             <td>
-                                <input type="file" name="image" id="" class="mb-1 ml-1">
+                                <div class="display-image" id="displayImage">
+                                    <img src="" class="image-upload" height="200" width="200">
+                                </div>
+                                <br>                             
+                                <input type="file" name="imageInput" id="imageInput" class="mb-1 ml-1">
                             </td>
                         </tr>
                         <tr>
                             <td>Comment: </td>
                             <td>
-                                <textarea name="comment" id="" cols="30" rows="4" class="ml-1"></textarea>
+                                <textarea name="comment" id="" cols="30" rows="4" class="ml-1" placeholder=" Give a short decription: "></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -98,6 +104,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="style.js"></script>
 </body>
     <!-- <footer>
     <p>Posted by: Dena</p>
