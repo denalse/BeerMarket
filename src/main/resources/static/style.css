@@ -53,7 +53,7 @@ h1 {
     padding: 1%;
     border: 3px solid rgb(197, 236, 197);
     color: rgb(17, 15, 13);
-    background-color: rgb(201, 198, 186)
+    background-color: rgb(201, 198, 186);
 }
 
 
@@ -64,7 +64,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0%;
-    margin:0%
+    margin:0%;
+    padding-bottom: 50px;
 }
 
 /* Setting the styling for the gif (center) in welcome page */
@@ -169,8 +170,9 @@ body {
 }
 
 .imgContainer {
+    position: relative;
     float: left;
-    padding: 40px;
+    padding: 50px;
     display: inline;
 }
 /* 

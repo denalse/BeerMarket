@@ -2,6 +2,9 @@ package nus.project.FlowerMarket.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.*;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -12,28 +15,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import nus.project.FlowerMarket.service.LoginService;
+import nus.project.FlowerMarket.model.User;
+import nus.project.FlowerMarket.service.UserService;
 
 @Controller
-@RequestMapping(path="/{username}")
+@RequestMapping (path="/")
 public class LoginController {
 
+    private Logger logger = LoggerFactory.getLogger(FlowerController.class);
+
+
     @Autowired
-    private LoginService loginSvc;
+    private UserService userSvc;
     
-//     @GetMapping("/login")
-//     public String getLogin() {
 
-//         return "login";
-//     }
+    @GetMapping(path="/logout")
+    public String getLogout(HttpSession sess) {
+        sess.invalidate();
+        return "welcome";
+    }
 
-//     @GetMapping
-//     public String getLogout(HttpSession sess) {
-//         sess.invalidate();
-//         return "index";
-//     }
-
-    @PostMapping(path="/login")
+    @PostMapping (path="/authenticate")
     public ModelAndView goLogin(@RequestBody MultiValueMap<String,String> payload) {
         
         String username = payload.getFirst("username");
@@ -43,20 +45,26 @@ public class LoginController {
 
         ModelAndView mvc = new ModelAndView();
 
-        if (!loginSvc.authenticate(username, password)) {
+        User userAuthenticate = userSvc.authenticate(username, password);
+
+        if (userAuthenticate == null) {
             
             //not successfull
+            mvc.setStatus(HttpStatus.UNAUTHORIZED);
             mvc.setViewName("error");
-            mvc.setStatus(HttpStatus.FORBIDDEN);
 
-        } else {
+            return mvc;
+            
+        } 
+        else {
            
             //successful
-            mvc.setViewName("hello");
-            mvc.setStatus(HttpStatus.OK);
+            mvc.setViewName("welcome");
             mvc.addObject("username", username);
-        }
+            mvc.setStatus(HttpStatus.OK);
 
+        }
+        
         return mvc;
     }
 }

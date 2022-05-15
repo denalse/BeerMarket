@@ -14,10 +14,11 @@ import nus.project.FlowerMarket.model.Post;
 import nus.project.FlowerMarket.repository.PostRepository;
 
 @RestController
+//change from post to market
 @RequestMapping(path="/post")
-public class FlowerRestController {
+public class PostRestController {
     
-    @Autowired
+     @Autowired
     private PostRepository postRepo;
 
     @GetMapping(path="/{postId}/image")

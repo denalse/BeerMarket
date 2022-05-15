@@ -7,14 +7,15 @@
     <title>Post</title>
 </head>
 <body>
-    <h2>Poster: <span data-th-text="${post.poster}"></span></h2>
+    <h1>Poster: <span data-th-text="${post.poster}"></span></h1>
 
     <div>
-        <img data-th-src = "@{/post/{postId}/image(postId=${post.postId})}" alt="Picture">
-        <!-- <img data-th-src = "@{post/{post.postId}/image}" alt="/"> -->
+        <!-- change from /post to /market -->
+        <img data-th-src = "@{/post/{postId}/image(postId=${post.postId})}" alt="Picture" width="200" height="200">
+        <!-- <img data-th-src = "@{market/image({post.postId}/image})" alt="/"> -->
 
     </div>
 
-    <p data-th-text = "${post.comment}"></p>
+    <h3><i>Description: </i><span data-th-text = "${post.comment}"></span></h3>
 </body>
 </html>

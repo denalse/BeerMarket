@@ -17,8 +17,9 @@ public class PostRepository {
     private JdbcTemplate temp;
 
     public Optional<Post> getPostById(Integer postId) {
-        return temp.query (
+        return temp.query(
             SQL_GET_POST_BY_POST_ID,
+            
             (ResultSet rs) -> {
                 if(!rs.next())
                     return Optional.empty();
@@ -30,7 +31,8 @@ public class PostRepository {
 
     //insert post data to the flower post table
     public Integer insertPost(Post post) {
-       Integer updCount =  temp.update(SQL_INSERT_POST, 
+       
+        Integer updCount =  temp.update(SQL_INSERT_POST, 
                                 post.getImage(),
                                 post.getComment(),
                                 post.getPoster(),
@@ -38,5 +40,19 @@ public class PostRepository {
             return updCount;
 
     }
+
+    //get image data from the flower post table
+    public Optional<Post> getPost(Post photo) {
+        return temp.query(
+            SQL_GET_POST_IMAGES,
+            (ResultSet rs) -> {
+                if(!rs.next())
+                    return Optional.empty();
+
+                final Post post = Post.save(rs);
+                return Optional.of(post);
+            } , photo);
+
+        }
     
 }

@@ -17,11 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     
-
-    
 </head>
 
+
+
 <body>
+    
     <div class="container">
         <div class="row">
             <div class="col">
@@ -44,66 +45,114 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <!-- <form action="/community" method= "GET" class="mt-5" > -->
-                    
-                    <h3 class="display-6 mt-5">Hey Flowerlies, Sharing is Caring!</h3>
-                    
-                    <figure>
-                        <blockquote class="blockquote mt-3 ml-3">
-                          <p>"Flowers always make people better, happier, and more helpful; they are sunshine, food and medicine for the soul."</p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer ml-3">
-                          From <cite title="Source Title">Luther Burbank</cite>
-                        </figcaption>
-                      
-                    </figure>
-                <!-- </form> -->
-                    <br>
-                    <br>
-                    <br>
-                <form  action="/post" method= "POST" enctype="multipart/form-data" accept="image/*">
-                    <table>
-                        <tr>
-                            <td>Image: </td>
-                            <td>
-                                <div class="display-image" id="displayImage">
-                                    <img src="" class="image-upload" height="200" width="200">
-                                </div>
-                                <br>                             
-                                <input type="file" name="imageInput" id="imageInput" class="mb-1 ml-1">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Comment: </td>
-                            <td>
-                                <textarea name="comment" id="" cols="30" rows="4" class="ml-1" placeholder=" Give a short decription: "></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Poster: </td>
-                            <td>
-                                <input type="text" name="poster" id="" class="ml-1">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <!--This is a back button to go back to the previous page-->
-                                <form action="/">
-                                    <input type="button" value="Go back" id="back1" class="mt-2 ml-1" onclick="history.back()">
-                                </form>
-                            </td>
-                            <td>
-                                <button type="submit" class="mt-2 ml-1">Submit</button>
-                             </td>
-                        </tr>
-                    </table>
-                </form>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <!-- <form action="/community" method= "GET" class="mt-5" > -->
+                        
+                        <h3 class="display-6 mt-5">Hey Flowerlies, Sharing is Caring!</h3>
+                        
+                        <figure>
+                            <blockquote class="blockquote mt-3 ml-3">
+                            <p>"Flowers always make people better, happier, and more helpful; they are sunshine, food and medicine for the soul."</p>
+                            </blockquote>
+                            <figcaption class="blockquote-footer ml-3">
+                            From <cite title="Source Title">Luther Burbank</cite>
+                            </figcaption>
+                        
+                        </figure>
+                </div>
             </div>
         </div>
-    </div>
+                <!-- </form> -->
+            <div class="" id="page">
+
+                <div class="imgContainer">
+                    <!-- <p>q</p> -->
+                    <img src="images/z1.png" alt="light pink flower" class="img-responsive" height="200" width="200">
+                    <!-- <div>
+                        <p>Everyday, pink is free.</p>
+                    </div> -->
+                </div>
+
+                <div class="imgContainer">
+                    <img src="images/z2.png" alt="white flower" class="img-responsiev" height="200" width="200">
+                </div>
+
+                <div class="imgContainer">
+                    <img src="images/z3.png" alt="blue flower" class="" height="200" width="200">
+                </div>
+
+                <div class="imgContainer">
+                    <img src="images/z4.png" alt="red orange flower" class="img-responsive" height="200" width="200">
+                </div>
+
+                <div class="imgContainer">
+                    <img src="images/z5.png" alt="yellow flower" class="img-responsive" height="200" width="200">
+                </div>
+
+                <div class="imgContainer">
+                    <img src="images/z6.png" alt="pink roses" class="img-responsive" height="200" width="200">
+                </div>
+
+                <!-- <div class="imgContainer">
+                    <img src="/@{${post.photosImagePath}}" alt="" class="img-responsive">
+                </div> -->
+
+            </div>
+                    <br>
+                    <br>
+                    <br>
+
+                <div class="col mt-5">
+                    
+                    <!-- change from post to market -->
+                    <!-- <form  action="/market" object="${post}" method= "POST" enctype="multipart/form-data" accept="image/*" class="" style="position: relative;"> -->
+                    <form  action="/post" method= "POST" enctype="multipart/form-data" accept="image/*" class="" style="position: relative;">
+                        <table>
+                            <tr>
+                                <td>Image: </td>
+                                <td>
+                                    <div class="display-image" id="displayImage">
+                                        <img src="" class="image-upload" height="200" width="200">
+                                    </div>
+                                    <br>                             
+                                    <input type="file" name="image" id="imageInput" class="mb-1 ml-1" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Comment: </td>
+                                <td>
+                                    <textarea name="comment" id="" cols="30" rows="4" class="ml-1" placeholder=" Give a short decription: " required></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Poster: </td>
+                                <td>
+                                    <input type="text" name="poster" id="" class="ml-1" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--This is a back button to go back to the previous page-->
+                                    <!-- <form action="/">
+                                        <input type="button" value="Go back" id="back1" class="mt-2 ml-1" onclick="history.back()">
+                                    </form> -->
+                                </td>
+                                <td style="height: 10px; width: 10px">
+                                    <input type="reset" class="mt-2 ml-1" name="reset">
+                                </td>
+                                <td>
+                                    <button type="submit" class="mt-2">Submit</button>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                </div>
+
+    <!-- Place script tag here so it will work -->
     <script type="text/javascript" src="style.js"></script>
 </body>
     <!-- <footer>
