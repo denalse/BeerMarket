@@ -173,12 +173,23 @@ body {
     position: relative;
     float: left;
     padding: 50px;
-    display: inline;
+    /* height: 200px;
+    width: 200px; */
 }
-/* 
+
 #page {
-    position: relative;
+    /* position: relative; */
     margin: auto;
     display: block;
-} */
+}
+
+#upload {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
 

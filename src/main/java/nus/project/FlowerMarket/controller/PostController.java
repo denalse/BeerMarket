@@ -37,7 +37,7 @@ public class PostController {
     @Autowired
     private PostRepository postRepo;
     
-    @GetMapping(path="/{postId}")
+    @GetMapping //(path="/{postId}")
     public ModelAndView getPostById(@PathVariable Integer postId) {
         
         ModelAndView mvc = new ModelAndView();

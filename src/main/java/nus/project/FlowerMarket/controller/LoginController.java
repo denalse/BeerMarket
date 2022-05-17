@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import nus.project.FlowerMarket.model.User;
 import nus.project.FlowerMarket.service.UserService;
 
-@Controller
-@RequestMapping (path="/")
+@Controller //what is the diff between path= and without
+@RequestMapping("/authenticate")
 public class LoginController {
 
     private Logger logger = LoggerFactory.getLogger(FlowerController.class);
@@ -29,40 +29,32 @@ public class LoginController {
     private UserService userSvc;
     
 
-    @GetMapping(path="/logout")
+    @GetMapping("/logout")
     public String getLogout(HttpSession sess) {
         sess.invalidate();
         return "welcome";
     }
 
-    @PostMapping (path="/authenticate")
-    public ModelAndView goLogin(@RequestBody MultiValueMap<String,String> payload) {
-        
+    @PostMapping
+    public ModelAndView getLogin(@RequestBody MultiValueMap<String, String> payload
+            , HttpSession sess) {
+
         String username = payload.getFirst("username");
         String password = payload.getFirst("password");
 
-        System.out.printf(">>>>>> username: %s, password: %s\n", username, password);
+        System.out.printf("+++ username: %s, password: %s\n", username, password);
 
         ModelAndView mvc = new ModelAndView();
 
-        User userAuthenticate = userSvc.authenticate(username, password);
-
-        if (userAuthenticate == null) {
-            
-            //not successfull
-            mvc.setStatus(HttpStatus.UNAUTHORIZED);
+        if (!userSvc.authenticate(username, password)) {
+            // Not successful
             mvc.setViewName("error");
+            mvc.setStatus(HttpStatus.FORBIDDEN);
 
-            return mvc;
-            
-        } 
-        else {
-           
-            //successful
-            mvc.setViewName("welcome");
-            mvc.addObject("username", username);
-            mvc.setStatus(HttpStatus.OK);
-
+        } else {
+            // Successful
+            sess.setAttribute("username", username);
+            // mvc = new ModelAndView("redirect:/protected/hello");
         }
         
         return mvc;

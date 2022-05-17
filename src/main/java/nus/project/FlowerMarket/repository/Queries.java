@@ -9,6 +9,8 @@ public interface Queries {
     public static final String SQL_GET_POST_BY_POST_ID =
     "select photo, comment, poster, mediatype, post_id from post where post_id = ?";
     
+    //GET all post
+    
     //Posting, saving file
     public static final String SQL_GET_POST_IMAGES =
     "select * from post";
@@ -23,7 +25,9 @@ public interface Queries {
 
     //username and password authenticate/verify
     public static final String SQL_AUTHENTICATE_USER =
-    "select * from user where username='${username}' and password='${password}'";
+    "select count(*) as user_count from user where username = ? and password = ?";
+    
+    // "select count(*) as user_count from user where username='${username}' and password='${password}'";
     // "select * from user where username="${username}" and password="${password}"";
     //"select * from user where password = '....' and username = '...'";
 }

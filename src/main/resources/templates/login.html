@@ -50,7 +50,7 @@
         <div class="text-center">
             <div class="row">
                 <div class="col-md-12">
-                    <form action = "/login" method= "POST" accept-charset="UTF-8">
+                    <!-- <form action = "/login" method= "POST" accept-charset="UTF-8"> -->
 <!-- 
                         <div th:if="${param.error}" class="alert alert-error">
                             Invalid username and password.
@@ -62,29 +62,23 @@
                             <div id="Login" class="mt-5">
                                 <div class="form-class">
                                         <h2>Login</h2>
-                                            <form>
+                                            <form action="/authenticate" method="POST">
                                                 Username
                                                 <br>
-                                                <input type="text" class="ml-1" required>
+                                                <input type="text" name="username" size="30" class="ml-1" required>
                                                 <br>
                                                 Password
                                                 <br>
-                                                <input type="password" id="id_password" required>
+                                                <input type="password" name="password" size="30" id="id_password" required>
                                                 <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;" onclick="verifyPassword()"></i>
                                                 <br>
-                                                <input type="submit" value="Login" class="mt-3">
+                                                <button type="submit" class="mt-4">Login</button>
                                             </form>  
                                 </div>
                             </div>                       
-                    </form>
+                    <!-- </form> -->
                 </div>        
 
-                    <!-- <div class="form">
-                        <button type="submit" id="buttonLogin" class="mt-2">Let's Go!</button>
-                    </div> -->
-                                <!-- <form action="/">
-                                        <input type="button" value="Go back" id="back" class="mt-2 ml-1" onclick="history.back()">
-                                    </form> -->
             </div>       
         </div>
     </body>

@@ -26,9 +26,12 @@ public class UserService {
     }
 
     //authenticate the user, validate
-    public User authenticate(String username, String password) {
+    public boolean authenticate(String username, String password) {
     
-        return userRepo.authenticate(username, password);
+        System.out.println(userRepo.countUsersByNameAndPassword(username, password));
+        
+        return 1 == userRepo.countUsersByNameAndPassword(username, password);
+
     }
 }
 

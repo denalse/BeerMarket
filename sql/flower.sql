@@ -15,10 +15,6 @@ create table post (
     primary key(post_id)
 );
 
--- create table user (
---     
--- )
-
 -- register user to database digital ocean
 create table user (
     user_id int not null auto_increment,
@@ -30,6 +26,19 @@ create table user (
     primary key(user_id),
 
     constraint fk_post_id
+    foreign key(post_id)
+    references post(post_id)
+);
+
+-- admin use aka me, to store images first
+create table admin (
+	image_id int not null auto_increment,
+    image_src varchar(256) not null,
+    post_id int,
+    
+    primary key(image_id),
+    
+    constraint fk_post_id_src
     foreign key(post_id)
     references post(post_id)
 );

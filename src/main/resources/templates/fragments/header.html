@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Success</title>
-</head>
-<body>
-
+<header th:fragment="header">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -24,12 +15,15 @@
                                 </svg>
                             </button>
                         </div>
+                    <a href="login" th:unless="${user}">Login</a>
+                    <a href="register" th:unless="${user}">Register</a>
+                    <p th:if="${user}">Welcome, 
+                        <span data-th-text="${user.username}"></span>
+                    </p>
+                    <a href="logout" th:if="${user}">Logout</a>
+                    
                 </div>
             </div>
         </div>
     </div>
-
-    <h2>Welcome<span th:text="${username}"></span></h2>
- 
-</body>
-</html>
+</header>

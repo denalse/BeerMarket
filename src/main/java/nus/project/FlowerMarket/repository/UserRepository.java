@@ -40,15 +40,28 @@ public class UserRepository {
     
     }
     //user authetication, else create new login for user
-    public User authenticate(String username, String password) {
+    
 
-        final SqlRowSet rs = temp.queryForRowSet(
-            SQL_AUTHENTICATE_USER, username, password);
+    public int countUsersByNameAndPassword(String username, String password) {
+            
+        try{
+            SqlRowSet rs = temp.queryForRowSet(SQL_AUTHENTICATE_USER, username, password);
+                
+            if (!rs.next()) {
+                //  x = rs.getString(1);
+                //  System.out.print(x);
+                    return 0;
+                }else{
+                    return rs.getInt("user_count");
+                }
 
-            if(!rs.next())
-                return null;
-        // return password because it is important 
-        // return rs.getInt("user_id");
-            return User.create(rs);
-    }
+            } catch (Exception ex) {
+                    System.out.println(ex);
+                    
+                
+            }
+            return 0;
+            //return rs.getInt("user_count");
+        }
+
 }
