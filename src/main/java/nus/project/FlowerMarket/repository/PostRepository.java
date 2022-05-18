@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import nus.project.FlowerMarket.model.Admin;
 import nus.project.FlowerMarket.model.Post;
 import static nus.project.FlowerMarket.repository.Queries.*;
 
@@ -53,6 +54,18 @@ public class PostRepository {
                 return Optional.of(post);
             } , photo);
 
-        }
+    }
+
+    public Optional<Admin> getImage(Admin image_src) {
+        return temp.query(
+            SQL_GET_IMAGE_BY_ID,
+            (ResultSet rs) -> {
+                if(!rs.next())
+                    return Optional.empty();
+
+                final Admin image = Admin.populate(rs);
+                return Optional.of(image);
+            } , image_src);
+    }
     
 }

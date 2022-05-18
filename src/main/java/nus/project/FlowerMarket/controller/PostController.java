@@ -32,7 +32,7 @@ import nus.project.FlowerMarket.service.FileUploadUtil;
 @RequestMapping(path="/post")
 public class PostController {
 
-    private Logger logger = LoggerFactory.getLogger(FlowerController.class);
+    private Logger logger = LoggerFactory.getLogger(BeerController.class);
 
     @Autowired
     private PostRepository postRepo;

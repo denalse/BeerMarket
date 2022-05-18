@@ -14,6 +14,10 @@ public interface Queries {
     //Posting, saving file
     public static final String SQL_GET_POST_IMAGES =
     "select * from post";
+
+    //getting image from admin (me)
+    public static final String SQL_GET_IMAGE_BY_ID =
+    "select * from admin where image_id = ?";
     
     
     //LOGIN, Save user into database

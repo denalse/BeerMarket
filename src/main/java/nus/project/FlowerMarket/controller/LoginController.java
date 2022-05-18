@@ -22,7 +22,7 @@ import nus.project.FlowerMarket.service.UserService;
 @RequestMapping("/authenticate")
 public class LoginController {
 
-    private Logger logger = LoggerFactory.getLogger(FlowerController.class);
+    private Logger logger = LoggerFactory.getLogger(BeerController.class);
 
 
     @Autowired
