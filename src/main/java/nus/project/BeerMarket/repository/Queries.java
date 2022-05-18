@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket.repository;
+package nus.project.BeerMarket.repository;
 
 public interface Queries {
     

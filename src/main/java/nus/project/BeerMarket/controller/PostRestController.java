@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket.controller;
+package nus.project.BeerMarket.controller;
 
 import java.util.Optional;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import nus.project.FlowerMarket.model.Post;
-import nus.project.FlowerMarket.repository.PostRepository;
+import nus.project.BeerMarket.model.Post;
+import nus.project.BeerMarket.repository.PostRepository;
 
 @RestController
 //change from post to market

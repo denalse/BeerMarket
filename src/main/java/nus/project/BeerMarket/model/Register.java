@@ -1,4 +1,4 @@
-// package nus.project.FlowerMarket.model;
+// package nus.project.BeerMarket.model;
 
 // import org.springframework.jdbc.support.rowset.SqlRowSet;
 // import org.springframework.util.MultiValueMap;

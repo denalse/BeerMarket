@@ -1,10 +1,10 @@
-package nus.project.FlowerMarket.service;
+package nus.project.BeerMarket.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import nus.project.FlowerMarket.model.User;
-import nus.project.FlowerMarket.repository.UserRepository;
+import nus.project.BeerMarket.model.User;
+import nus.project.BeerMarket.repository.UserRepository;
 
 @Service
 public class UserService {

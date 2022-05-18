@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket.filters;
+package nus.project.BeerMarket.filters;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket;
+package nus.project.BeerMarket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket.configuration;
+package nus.project.BeerMarket.configuration;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

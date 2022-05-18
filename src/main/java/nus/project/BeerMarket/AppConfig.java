@@ -1,10 +1,10 @@
-package nus.project.FlowerMarket;
+package nus.project.BeerMarket;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import nus.project.FlowerMarket.filters.LoginFilter;
+import nus.project.BeerMarket.filters.LoginFilter;
 
 @Configuration
 public class AppConfig {

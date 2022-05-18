@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket.repository;
+package nus.project.BeerMarket.repository;
 
 import java.sql.ResultSet;
 import java.util.Optional;
@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import nus.project.FlowerMarket.model.Admin;
-import nus.project.FlowerMarket.model.Post;
-import static nus.project.FlowerMarket.repository.Queries.*;
+import nus.project.BeerMarket.model.Admin;
+import nus.project.BeerMarket.model.Post;
+import static nus.project.BeerMarket.repository.Queries.*;
 
 @Repository
 public class PostRepository {

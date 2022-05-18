@@ -1,8 +1,8 @@
-drop database if exists myflowermarket;
+drop database if exists mybeermarket;
 
-create database myflowermarket;
+create database mybeermarket;
 
-use myflowermarket;
+use mybeermarket;
 
 -- post photo to database digital ocean
 create table post (

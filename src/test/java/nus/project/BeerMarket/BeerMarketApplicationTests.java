@@ -3,7 +3,7 @@ package nus.project.BeerMarket;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import nus.project.FlowerMarket.model.Post;
+import nus.project.BeerMarket.model.Post;
 
 @SpringBootTest
 class BeerMarketApplicationTests {

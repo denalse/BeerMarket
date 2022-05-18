@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket.model;
+package nus.project.BeerMarket.model;
 
 import java.beans.Transient;
 import java.sql.ResultSet;

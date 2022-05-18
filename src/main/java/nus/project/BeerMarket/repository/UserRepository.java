@@ -1,13 +1,13 @@
-package nus.project.FlowerMarket.repository;
+package nus.project.BeerMarket.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
-import nus.project.FlowerMarket.model.User;
+import nus.project.BeerMarket.model.User;
 
-import static nus.project.FlowerMarket.repository.Queries.*;
+import static nus.project.BeerMarket.repository.Queries.*;
 
 import java.util.Optional;
 

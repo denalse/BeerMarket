@@ -1,4 +1,4 @@
-package nus.project.FlowerMarket.controller;
+package nus.project.BeerMarket.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import nus.project.FlowerMarket.model.User;
-import nus.project.FlowerMarket.service.UserService;
+import nus.project.BeerMarket.model.User;
+import nus.project.BeerMarket.service.UserService;
 
 @Controller //what is the diff between path= and without
 @RequestMapping("/authenticate")

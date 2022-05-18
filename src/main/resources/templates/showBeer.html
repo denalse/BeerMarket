@@ -14,10 +14,27 @@
                 </div>
 
                 <table>
-
-                    <tr th:each="beerUrl: ${image}">
+                    <tr th:each="image: ${imageList}">
                         <td>
-                            <img th:src="${beerUrl}" width="100" height="100">
+                            <img th:src="${image}" width="120" height="400">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="mt-5">Name of Beer: </h5>
+                            <p th:text="${name}"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="mt-5">Description: </h5>
+                            <p th:text="${description}"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="mt-5">Brewers Tips: </h5>
+                            <p th:text="${tips}"></p> 
                         </td>
                     </tr>
                 </table>
