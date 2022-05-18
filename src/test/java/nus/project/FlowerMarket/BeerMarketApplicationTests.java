@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import nus.project.FlowerMarket.model.Post;
 
 @SpringBootTest
-class FlowerMarketApplicationTests {
+class BeerMarketApplicationTests {
 
 	@Test
 	void contextLoads() {
