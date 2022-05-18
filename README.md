@@ -2,7 +2,7 @@ My first workflow
 
 <!-- Click on the workflow, click on "..." and click "create status badge" and copy the url -->
 
-[![Compile, test, deploy](https://github.com/denalse/FlowerMarket/actions/workflows/main.yaml/badge.svg)](https://github.com/denalse/FlowerMarket/actions/workflows/main.yaml)
+[![Compile, test, deploy](https://github.com/denalse/BeerMarket/actions/workflows/main.yaml/badge.svg)](https://github.com/denalse/BeerMarket/actions/workflows/main.yaml)
 
 Jacoco coverage badge
 
