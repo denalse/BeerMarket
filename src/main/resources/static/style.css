@@ -60,7 +60,7 @@ h1 {
 /* Setting background wallpaer for Webpage */
 body {
     background: no-repeat center center fixed;
-    background-image:url('images/welcomebg.png');
+    background-image:url('images/aboutbg.png');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0%;
@@ -186,6 +186,11 @@ body {
 #upload {
     margin-top: 20px;
 }
+
+.center {
+    display: flex;
+}
+
 
 @media only screen and (max-width: 768px) {
     [class*="col-"] {

@@ -1,6 +1,5 @@
 package nus.project.BeerMarket.model;
 
-import java.beans.Transient;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -61,23 +60,15 @@ public class Post {
         return post;
     }
 
-    public static Post save(ResultSet rs) throws SQLException {
-        final Post savedpost = new Post();
-        savedpost.setImage(rs.getBytes("photo"));
-        savedpost.setComment(rs.getString("comment"));
-        savedpost.setPoster(rs.getString("poster"));
-        savedpost.setImageType(rs.getString("mediatype"));
-        savedpost.setPostId(rs.getInt("post_id"));
+    public static Post show(ResultSet rs) throws SQLException {
+        final Post post = new Post();
+        post.setImage(rs.getBytes("photo"));
+        post.setComment(rs.getString("comment"));
+        post.setPoster(rs.getString("poster"));
+        post.setImageType(rs.getString("mediatype"));
+        post.setPostId(rs.getInt("post_id"));
         
-        return savedpost;
+        return post;
     }
 
-    //transient keyword is used to denote that a field 
-    //is not to be serialized
-    @Transient
-    public String getPhotosImagePath() {
-        if (image == null || postId == null) return null;
-         
-        return "/market-photos/" + postId + "/" + image;
-    }
 }

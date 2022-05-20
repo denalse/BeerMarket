@@ -1,4 +1,3 @@
-
 // function for upload and display image
     const imageInput = document.getElementById("imageInput");
     const previewContainer = document.getElementById("displayImage");

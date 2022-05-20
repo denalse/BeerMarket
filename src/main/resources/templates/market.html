@@ -31,43 +31,20 @@
                     <div class="row">
                         <div class="imgContainer col-md-3">
                             <!-- <p>q</p> -->
-                            <img src="images/z1.png" alt="light pink flower" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
+                            <img src="images/b1.png" alt="light pink flower" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
                             <div>
-                                <p>Everyday, pink is free.</p>
+                                <p>Carlsberg, the best beer</p>
                             </div>
                         </div>
     
-                        <div class="imgContainer col-md-3">
-                            <img src="images/z2.png" alt="white flower" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
-                            <div>
-                                <p>Everyday, pink is free.</p>
-                            </div>
-                        </div>
-    
-                        <div class="imgContainer col-md-3">
-                            <img src="images/z3.png" alt="blue flower" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
-                        </div>
-    
-                        <div class="imgContainer col-md-3">
-                            <img src="images/z4.png" alt="red orange flower" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="imgContainer col-md-3">
-                            <img src="images/z5.png" alt="yellow flower" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
-                        </div>
-    
-                        <div class="imgContainer col-md-3">
-                            <img src="images/z6.png" alt="pink roses" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
-                        </div>
-    
-                            <div class="imgContainer col-md-3">
-                                <!-- <img th:src="">  -->
-                            <!-- <img src="/@{${post.photosImagePath}}" alt="" class="img-responsive"> -->
+                        
+                            <div th:each="i: ${images}" class="imgContainer col-md-3">
+                                <!-- <img th:src="@{/post/:id/image}(id=${i})">
+                                    <span></span> -->
+                            <!-- </img src="/@{${post.photosImagePath}}" alt="" class="img-responsive"> -->
                             </div>
                     </div>
-                </div>
+                 </div>
                         
         
     
@@ -75,13 +52,14 @@
                         <p><span><b>Cant Find What You're Looking For?  Share them here!</b></span></p>
                         <!-- change from post to market -->
                         <!-- <form  action="/market" object="${post}" method= "POST" enctype="multipart/form-data" accept="image/*" class="" style="position: relative;"> -->
-                        <form  action="/post" method= "POST" enctype="multipart/form-data" accept="image/*" class="" style="position: relative;">
+                        <form  action="/market" method= "POST" enctype="multipart/form-data" accept="image/*" class="" style="position: relative;">
                             <table>
                                 <tr>
                                     <td>Image: </td>
                                     <td>
                                         <div class="display-image" id="displayImage">
-                                            <img src="" class="image-upload" height="200" width="200">
+                                            <!-- Figure this out to put no image added yet -->
+                                            <img src="#" class="image-upload" height="200" width="200" placeholder="No Image Added" alt="Click to add below!">
                                         </div>
                                         <br>                             
                                         <input type="file" name="image" id="imageInput" class="mb-1 ml-1" required>

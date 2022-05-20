@@ -8,7 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import nus.project.BeerMarket.model.Post;
 import nus.project.BeerMarket.repository.PostRepository;
@@ -37,5 +41,16 @@ public class PostRestController {
         return ResponseEntity.ok()
             .headers(headers)
             .body(postVal.getImage());
+    }
+
+    @GetMapping //(path="/market")
+    public ModelAndView getPosterPost(@RequestParam MultipartFile image,
+    @RequestPart String comment, 
+    @RequestPart String poster ) {
+
+        ModelAndView mvc = new ModelAndView();
+
+        mvc.setViewName("market");
+        return mvc;
     }
 }

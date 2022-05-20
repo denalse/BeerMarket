@@ -19,79 +19,64 @@ import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
+import nus.project.BeerMarket.model.Beer;
 
 @Service
 public class BeerService {
 
     private Logger logger = LoggerFactory.getLogger(BeerService.class);
-
-    private final String url = "https://api.punkapi.com/v2/beers/random";
     
-    // public List<String> getBeer(Integer searchId) {
-    //     return getBeer(searchId, "name", "description", "tips");
-    // }
+    public List<Beer> getBeer(Integer searchId, String imageUrl, String name, String description, String tips) {
+        return getBeer(searchId, imageUrl, name, description, tips);
+    }
 
-    
-    public ArrayList<String> getBeer(Integer searchId) {//, String name, String description, String tips) {
+    public ArrayList<Beer> getBeer(Integer searchId) {
 
-        // String url = UriComponentsBuilder.fromUriString(BEER_SEARCH)
-        // .queryParam("id", searchId)
-        // .queryParam("name", name)
-        // .queryParam("description", description)
-        // .queryParam("brewers_tips", tips)
-        // .toUriString();
-                
-        ArrayList<String> beerUrl = new ArrayList<String>();
+        final String url = "https://api.punkapi.com/v2/beers/" + searchId;
+            // JsonArray arr;
+            // if(arr != null) {
 
-            // int j=1; //Number of id limit to 26
-            // for (int i=0; i<j; i++) {
-                                        
-                RequestEntity<Void> req = RequestEntity
-                .get(url)
-                .accept(MediaType.APPLICATION_JSON)
-                .build();
+               RequestEntity<Void> req = RequestEntity
+                    .get(url)
+                    .accept(MediaType.APPLICATION_JSON)
+                    .build();
 
-                RestTemplate template = new RestTemplate();
+                    RestTemplate template = new RestTemplate();
 
-                JsonArray array = null;
+                    //JsonArray array = null;
 
-                ResponseEntity<String> resp = template.exchange(req, String.class);
-                try (InputStream is = new ByteArrayInputStream(resp.getBody().getBytes())) {
-                    JsonReader reader = Json.createReader(is);
-                    array = reader.readArray();
+                    ResponseEntity<String> resp = template.exchange(req, String.class);
+                    System.out.println(">>>> " + resp.getBody());
+                    try (InputStream is = new ByteArrayInputStream(resp.getBody().getBytes())) {
+                        JsonReader reader = Json.createReader(is);
+                        JsonArray array = reader.readArray();
 
-                // System.out.println(object.getJsonObject("id").getJsonObject("name").getJsonObject("description").getJsonObject("brewers_tips").getJsonString("image_url"));
-                String image = ((JsonObject) array.get(0)).getString("image_url"); //value
-                String name = ((JsonObject) array.get(0)).getString("name"); //value
-                String description = ((JsonObject) array.get(0)).getString("description"); //value
-                String tips = ((JsonObject) array.get(0)).getString("brewers_tips"); //value
+                    ArrayList<Beer> list = new ArrayList<>();
 
-                    //JsonObject q = array.getJsonObject(i);
-
-                    System.out.printf("\r\r\n image>>> %s\n", image);
-                    System.out.printf("\r\r\n Name of Beer>>> \n", name);
-                    System.out.printf("\r\r\n Description>>> \n", description);
-                    System.out.printf("\r\r\n Tips>>> %s\n", tips);
-
-                    beerUrl.add(image);
-                    beerUrl.add(name);
-                    beerUrl.add(description);
-                    beerUrl.add(tips);
-
-                    System.out.println(">>>> BEER URL >>>>>" + beerUrl);
-                                            
-                    logger.info("\r\n >>>> Image >>> " + image);
-                    logger.info("\r\n >>>> Name >>> " + name);
-                                        
-                                        
-                         return beerUrl;
-
-                 } catch(Exception ex){
+                    for (int i=0; i<array.size(); i++) {
                     
-                    ex.printStackTrace();
-                }
+                        Beer b = new Beer();
+                        JsonObject obj = array.getJsonObject(i);
+                        b.setImageUrl(obj.getString("image_url"));
+                        b.setName(obj.getString("name"));
+                        b.setDescription(obj.getString("description"));
+                        b.setTips(obj.getString("brewers_tips"));
 
-            //}
+                        list.add(b);
+
+                            System.out.println(">>>> BEER URL >>>>>" + list);
+                                                
+                            logger.info("\r\n >>>> Image >>> " + list);
+                                                                
+                            return list;
+   
+                    }
+
+                    }catch(Exception ex){
+                                
+                        ex.printStackTrace();
+                    }            
+                    //}
 
             return null;
         

@@ -1,5 +1,6 @@
 package nus.project.BeerMarket.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import nus.project.BeerMarket.model.Beer;
 import nus.project.BeerMarket.service.BeerService;
 
 
@@ -77,19 +79,15 @@ public class BeerController {
         return mvc;
     }
 
-    //Do a random search of beer using beer ID
+    //Do a random search of beer using search Id
     @GetMapping(path="/search")
     public ModelAndView getSearch(@RequestParam Integer searchId) {
-    //, @RequestParam String name,
-      ///                  @RequestParam String description, @RequestParam String tips) {
-        
-        //System.out.printf(">>> searchId = %d, name = %s, description = %s, tips = %s\n", searchId);//, name, description, tips);
-
+   
         ModelAndView mvc = new ModelAndView();
 
-        List<String> imageList = beerSvc.getBeer(searchId);//, name, description, tips);
+        ArrayList<Beer> list = beerSvc.getBeer(searchId);
 
-        mvc.addObject("imageList", imageList);
+        mvc.addObject("list", list);
         mvc.addObject("searchId", searchId);
 
         mvc.setViewName("showBeer");
@@ -97,30 +95,6 @@ public class BeerController {
 
         return mvc;
     }
-
-   
-
-    // //This is to redirect to Login page
-    // @GetMapping(path="/login")
-    // public ModelAndView getLogin() {
-            
-    //     ModelAndView mvc = new ModelAndView();
-            
-    //     mvc.setViewName("login");
-    //     mvc.setStatus(HttpStatus.OK);
-    //     return mvc; 
-    // }
-
-    // @GetMapping(path="/register")
-    // public ModelAndView getRegister() {
-            
-    //     ModelAndView mvc = new ModelAndView();
-            
-    //     mvc.setViewName("register");
-    //     mvc.setStatus(HttpStatus.OK);
-    //     return mvc; 
-    // }
-
 
     // }
     

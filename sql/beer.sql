@@ -29,16 +29,3 @@ create table user (
     foreign key(post_id)
     references post(post_id)
 );
-
--- admin use aka me, to store images first
-create table admin (
-	image_id int not null auto_increment,
-    image_src varchar(256) not null,
-    post_id int,
-    
-    primary key(image_id),
-    
-    constraint fk_post_id_src
-    foreign key(post_id)
-    references post(post_id)
-);

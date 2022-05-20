@@ -20,20 +20,20 @@ public class LoginFilter implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         
-        HttpServletRequest httpReq = (HttpServletRequest)request;
-        HttpServletResponse httpResp = (HttpServletResponse)response;
+        // HttpServletRequest httpReq = (HttpServletRequest)request;
+        // HttpServletResponse httpResp = (HttpServletResponse)response;
 
-        //Get back the HTTP session
-        HttpSession sess = httpReq.getSession();
-        String username = (String)sess.getAttribute("username");
+        // //Get back the HTTP session
+        // HttpSession sess = httpReq.getSession();
+        // String username = (String)sess.getAttribute("username");
  
-        System.out.printf(">>>> url: %s\n", httpReq.getRequestURI().toString());
-        System.out.printf(">>>> url: %s\n", sess.getAttribute("username"));
+        // System.out.printf(">>>> url: %s\n", httpReq.getRequestURI().toString());
+        // System.out.printf(">>>> url: %s\n", sess.getAttribute("username"));
 
-        if ((null == username) || (username.trim().length() <=0 )) {
-            httpResp.sendRedirect("/");
-            return;
-        }
+        // if ((null == username) || (username.trim().length() <=0 )) {
+        //     httpResp.sendRedirect("/");
+        //     return;
+        // }
 
         chain.doFilter(request, response);
 

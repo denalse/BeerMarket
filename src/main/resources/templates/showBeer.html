@@ -14,29 +14,28 @@
                 </div>
 
                 <table>
-                    <tr th:each="image: ${imageList}">
-                        <td>
-                            <img th:src="${image}" width="120" height="400">
+                    <tr th:each="beer: ${list}">
+                        <td width="20%">
+                            <img th:src="${beer.imageUrl}" width="120" height="400" class="mt-5 ml-5">
                         </td>
-                    </tr>
-                    <tr>
+
                         <td>
-                            <h5 class="mt-5">Name of Beer: </h5>
-                            <p th:text="${name}"></p>
+                            <div class="center">
+                                <p class="lead text-info"><b><label for="name">Name of Beer: &nbsp;</label></b></p>
+                                <span class="mt-1" th:text="${beer.name}"></span>
+                            </div>
+                        <br>
+                            <div class="center">
+                                <p class="lead text-info"><b><label for="description">Description:&nbsp;&nbsp;&nbsp;</label></b></p>
+                                <span class="mt-1" th:text="${beer.description}"></span>
+                            </div>
+                        <br>
+                            <div class="center">
+                                <p class="lead text-info"><b><label for="tips">Brewers Tips:&nbsp;</label></b></p>
+                                <span class="mt-1" th:text="${beer.tips}"></span>
+                            </div>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="mt-5">Description: </h5>
-                            <p th:text="${description}"></p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5 class="mt-5">Brewers Tips: </h5>
-                            <p th:text="${tips}"></p> 
-                        </td>
-                    </tr>
+                    </tr>  
                 </table>
 
                 <div class="row mt-3">
