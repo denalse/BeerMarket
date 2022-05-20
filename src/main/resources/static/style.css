@@ -60,7 +60,7 @@ h1 {
 /* Setting background wallpaer for Webpage */
 body {
     background: no-repeat center center fixed;
-    background-image:url('images/aboutbg.png');
+    background-image:url('images/welcomebg.png');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0%;
