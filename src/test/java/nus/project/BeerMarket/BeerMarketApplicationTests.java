@@ -1,5 +1,7 @@
 package nus.project.BeerMarket;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -8,9 +10,6 @@ import nus.project.BeerMarket.model.Post;
 @SpringBootTest
 class BeerMarketApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
 
 	//test for new post (passed)
 	@Test
@@ -33,11 +32,13 @@ class BeerMarketApplicationTests {
 		p.setImageType("image/png");
 		p.setPostId(1);
 		p.setPoster("Hello");
-		System.out.println(p.getComment());
-		System.out.println(p.getImageType());
-		System.out.println(p.getPoster());
-		System.out.println(p.getPostId());
-		System.out.println(p.getImage());
+		assertSame(p.getComment(), "test");
+	}
+
+
+	@Test
+	void ahouldFind() {
+
 	}
 
 }
