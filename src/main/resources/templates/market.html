@@ -30,19 +30,22 @@
                 <div class="container" id="page">
                     <div class="row">
                         <div class="imgContainer col-md-3">
-                            <!-- <p>q</p> -->
-                            <img src="images/b1.png" alt="light pink flower" height="100%" width="100%" style="min-height:200px; min-width:200px; max-height:200px; max-width:200px;">
-                            <div>
-                                <p>Carlsberg, the best beer</p>
+
+                            <!-- find this iteration variable names in postcontroller -->
+                            <div th:each="post: ${allPost}" class="imgContainer col-md-3">
+                                <div>
+                                    <img data-th-src = "@{/post/{postId}/image(postId=${post.postId})}" alt="Picture" width="200" height="200">
+                                </div>
+                                <div>
+                                    <p class="lead text-info"><b><label for="name">Post by: &nbsp;</label></b></p>
+                                    <span class="mt-1" th:text="${post.poster}"></span>
+                                </div>
+                                <div>
+                                    <p class="lead text-info"><b><label for="name">Comments: &nbsp;</label></b></p>
+                                    <span class="mt-1" th:text="${post.comment}"></span>                                
+                                </div>
                             </div>
                         </div>
-    
-                        
-                            <div th:each="i: ${images}" class="imgContainer col-md-3">
-                                <!-- <img th:src="@{/post/:id/image}(id=${i})">
-                                    <span></span> -->
-                            <!-- </img src="/@{${post.photosImagePath}}" alt="" class="img-responsive"> -->
-                            </div>
                     </div>
                  </div>
                         

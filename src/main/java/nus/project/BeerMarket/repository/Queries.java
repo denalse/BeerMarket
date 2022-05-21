@@ -12,6 +12,10 @@ public interface Queries {
     //Get post(image) from specific poster!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public static final String SQL_GET_POSTER_IMAGE =
     "select post_id from post where poster = ?";
+
+    public static final String SQL_GET_ALL_POST =
+    "select photo, comment, poster, mediatype, post_id from post";
+
      
     // "select count(*) as user_count from user where username='${username}' and password='${password}'";
     // "select * from user where username="${username}" and password="${password}"";

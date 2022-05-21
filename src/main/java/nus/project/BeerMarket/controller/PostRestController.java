@@ -43,14 +43,4 @@ public class PostRestController {
             .body(postVal.getImage());
     }
 
-    @GetMapping //(path="/market")
-    public ModelAndView getPosterPost(@RequestParam MultipartFile image,
-    @RequestPart String comment, 
-    @RequestPart String poster ) {
-
-        ModelAndView mvc = new ModelAndView();
-
-        mvc.setViewName("market");
-        return mvc;
-    }
 }

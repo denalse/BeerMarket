@@ -1,6 +1,7 @@
 package nus.project.BeerMarket.repository;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class PostRepository {
             SQL_GET_POST_BY_POST_ID,
             
             (ResultSet rs) -> {
+                //if resultset is empty return empty
                 if(!rs.next())
                     return Optional.empty();
 
@@ -37,21 +39,23 @@ public class PostRepository {
                                 post.getComment(),
                                 post.getPoster(),
                                 post.getImageType());
-            return updCount;
+        return updCount;
 
     }
 
     //get image data from the flower post table
-    public Optional<Post> getPost(Post poster) {
+    public ArrayList<Post> getAllPost() {
+        ArrayList<Post> getAllPost = new ArrayList<>();
         return temp.query(
-            SQL_GET_POSTER_IMAGE,
+            SQL_GET_ALL_POST,
             (ResultSet rs) -> {
-                if(!rs.next())
-                    return Optional.empty();
-
-                final Post post = Post.show(rs);
-                return Optional.of(post);
-            } , poster);
+                //Checking the rs for the first row and 
+                //after and add the post to the arraylist
+                while (rs.next() ) {
+                    getAllPost.add(Post.show(rs));   
+                }
+                return getAllPost;
+            });
 
     }
     
