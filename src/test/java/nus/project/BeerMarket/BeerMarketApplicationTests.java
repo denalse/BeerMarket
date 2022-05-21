@@ -32,7 +32,7 @@ class BeerMarketApplicationTests {
 		p.setImageType("image/png");
 		p.setPostId(1);
 		p.setPoster("Hello");
-		assertSame(p.getComment(), "test");
+		assertSame(p.getComment(), "test");;;
 	}
 
 
