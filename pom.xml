@@ -87,7 +87,7 @@
 					</execution>
 					<execution>
 						<id>report</id>
-						<phase>prepare-agent</phase>
+						<phase>verify</phase>
 						<goals>
 							<goal>report</goal>
 						</goals>
