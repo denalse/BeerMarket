@@ -28,25 +28,38 @@
         </div>
                 <!-- </form> -->
                 <div class="container" id="page">
-                    <div class="row">
-                        <div class="imgContainer col-md-3">
+                    <table>
+                        <div class="col">
+                            <div class="imgContainer col-md-3">
+                                <tr th:each="post: ${allPost}">
+                                    <td>
+                                        <img data-th-src = "@{/post/{postId}/image(postId=${post.postId})}" alt="Picture" width="200" height="200">
+                                        <div>
+                                            <p class="lead text-danger">
+                                                <b>
+                                                    <label for="poster">
+                                                        Post by:
+                                                </b>  
+                                                    <span class="mt-1 text-info" th:text="${post.poster}" style="text-transform:uppercase"></span>
+                                                    </label>
+                                                
+                                            </p>
+                                            <p class="lead text-danger">
+                                                <b>
+                                                    <label for="poster">
+                                                        Comments:
+                                                </b>  
+                                                    <span class="mt-1 text-info" th:text="${post.comment}"></span>
+                                                    </label>
+                                                
+                                            </p>
 
-                            <!-- find this iteration variable names in postcontroller -->
-                            <div th:each="post: ${allPost}" class="imgContainer col-md-3">
-                                <div>
-                                    <img data-th-src = "@{/post/{postId}/image(postId=${post.postId})}" alt="Picture" width="200" height="200">
-                                </div>
-                                <div>
-                                    <p class="lead text-info"><b><label for="name">Post by: &nbsp;</label></b></p>
-                                    <span class="mt-1" th:text="${post.poster}"></span>
-                                </div>
-                                <div>
-                                    <p class="lead text-info"><b><label for="name">Comments: &nbsp;</label></b></p>
-                                    <span class="mt-1" th:text="${post.comment}"></span>                                
-                                </div>
+                                        </div>
+                                    </td>
+                                </tr>
                             </div>
                         </div>
-                    </div>
+                    </table>
                  </div>
                         
         

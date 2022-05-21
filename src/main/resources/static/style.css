@@ -173,6 +173,7 @@ body {
     position: relative;
     float: left;
     padding: 50px;
+    display: block;
     /* height: 200px;
     width: 200px; */
 }
@@ -193,7 +194,7 @@ body {
 
 
 @media only screen and (max-width: 768px) {
-    [class*="col-"] {
+    [class*="row-"] {
       width: 100%;
     }
   }
