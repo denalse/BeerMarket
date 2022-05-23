@@ -16,3 +16,4 @@ jobs:
           heroku_api_key: ${{ secrets.heroku_api_key }}
           heroku_app_name: "beermarket"
           heroku_email: ${{ secrets.my_email }}
+          branch: ${{ github.ref_name }}
