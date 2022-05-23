@@ -15,22 +15,22 @@
 
                 <table>
                     <tr th:each="beer: ${list}">
-                        <td width="20%">
+                        <td>
                             <img th:src="${beer.imageUrl}" width="120" height="400" class="mt-5 ml-5">
                         </td>
 
                         <td>
-                            <div class="center">
+                            <div class="center1">
                                 <p class="lead text-info"><b><label for="name">Name of Beer: &nbsp;</label></b></p>
                                 <span class="mt-1" th:text="${beer.name}"></span>
                             </div>
                         <br>
-                            <div class="center">
+                            <div class="center1">
                                 <p class="lead text-info"><b><label for="description">Description:&nbsp;&nbsp;&nbsp;</label></b></p>
                                 <span class="mt-1" th:text="${beer.description}"></span>
                             </div>
                         <br>
-                            <div class="center">
+                            <div class="center1">
                                 <p class="lead text-info"><b><label for="tips">Brewers Tips:&nbsp;</label></b></p>
                                 <span class="mt-1" th:text="${beer.tips}"></span>
                             </div>

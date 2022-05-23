@@ -193,9 +193,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 200px;
-    
 }
 
+.center1 {
+    display: flex;
+}
 
 @media only screen and (max-width: 768px) {
     [class*="row-"] {
