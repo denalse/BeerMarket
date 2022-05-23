@@ -21,7 +21,7 @@ import nus.project.BeerMarket.service.BeerService;
 
 @Controller
 @RequestMapping (path="/")
-public class BeerController {
+public class MainController {
     
     @Autowired
     private BeerService beerSvc;
