@@ -33,19 +33,19 @@ public class PostController {
     @Autowired
     private PostRepository postRepo;
 
-    // @GetMapping
-    // public ModelAndView getMarketPlace() {
+    @GetMapping
+    public ModelAndView getMarketPlace() {
         
-    //     ModelAndView mvc = new ModelAndView();
+        ModelAndView mvc = new ModelAndView();
 
-    //     // get a list of images from your database
-    //     ArrayList<Post> post = new ArrayList<>();
-    //     post = postRepo.getAllPost();
-    //     mvc.addObject("allPost", post);
-    //     mvc.setViewName("market");
+        // get a list of images from your database
+        ArrayList<Post> post = new ArrayList<>();
+        post = postRepo.getAllPost();
+        mvc.addObject("allPost", post);
+        mvc.setViewName("market");
 
-    //     return mvc;
-    // }
+        return mvc;
+    }
     
     @GetMapping (path="/{postId}")
     public ModelAndView getPostById(@PathVariable Integer postId) {
