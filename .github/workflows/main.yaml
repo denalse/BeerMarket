@@ -6,6 +6,7 @@ env:
   SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
   SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
   SPRING_DATASOURCE_DRIVER_CLASS_NAME: ${{ secrets.SPRING_DATASOURCE_DRIVER_CLASS_NAME }}
+
 jobs:
   step1:
     runs-on: ubuntu-latest
@@ -33,17 +34,17 @@ jobs:
       with:
         access_key: ${{ secrets.access_key }}
         secret_key: ${{ secrets.secret_key }}
-        space_name: flowermart
+        space_name: beermarket
         space_region: sgp1
         source: .github/badges/jacoco.svg
         out_dir: coverage/${{ github.event.repository.name }}
         permission: public-read
-    - name: Upload coverage report
+    - name: Upload coverage report to DigitalOcean spaces
       uses: BetaHuhn/do-spaces-action@v2
       with:
         access_key: ${{ secrets.access_key }}
         secret_key: ${{ secrets.secret_key }}
-        space_name: flowermart
+        space_name: beermarket
         space_region: sgp1
         source: target/site/jacoco
         out_dir: coverage/${{ github.event.repository.name }}/report

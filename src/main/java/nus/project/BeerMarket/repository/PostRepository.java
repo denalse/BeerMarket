@@ -31,7 +31,7 @@ public class PostRepository {
             } , postId);
     }
 
-    //insert post data to the flower post table
+    //insert post data to the beer post table
     public Integer insertPost(Post post) {
        
         Integer updCount =  temp.update(SQL_INSERT_POST, 
@@ -43,7 +43,7 @@ public class PostRepository {
 
     }
 
-    //get image data from the flower post table
+    //get image data from the beer post table
     public ArrayList<Post> getAllPost() {
         ArrayList<Post> getAllPost = new ArrayList<>();
         return temp.query(
