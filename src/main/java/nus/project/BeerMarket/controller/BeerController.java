@@ -2,8 +2,6 @@ package nus.project.BeerMarket.controller;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 // import org.slf4j.*;
@@ -16,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import nus.project.BeerMarket.model.Beer;
+import nus.project.BeerMarket.model.Post;
+import nus.project.BeerMarket.repository.PostRepository;
 import nus.project.BeerMarket.service.BeerService;
 
 
@@ -25,6 +25,9 @@ public class BeerController {
     
     @Autowired
     private BeerService beerSvc;
+
+    @Autowired
+    private PostRepository postRepo;
     // private Logger logger = LoggerFactory.getLogger(BeerController.class);
 
     public String view() {
@@ -42,7 +45,7 @@ public class BeerController {
         return mvc;
     }
 
-    // This is the welcome page
+    // This is the home page
     @GetMapping(path="/home")
     public ModelAndView getHome() {
         
@@ -64,16 +67,19 @@ public class BeerController {
         return mvc; 
     }
 
-    // This is to redirect to D'Market Place page
-   //@GetMapping(path="/market")
-   //public ModelAndView getMarket() {
-   //        
-   //    ModelAndView mvc = new ModelAndView();
-   //        
-   //    mvc.setViewName("market");
-   //    mvc.setStatus(HttpStatus.OK);
-   //    return mvc;
-   //}
+    // This is redirect to Market page
+    @GetMapping(path="/market")
+    public ModelAndView getMarket() {
+        
+        ModelAndView mvc = new ModelAndView();
+        
+        ArrayList<Post> post = new ArrayList<>();
+        post = postRepo.getAllPost();
+        mvc.addObject("allPost", post);
+        mvc.setViewName("market");
+        return mvc; 
+    }
+
 
     //Do a random search of beer using search Id
     @GetMapping(path="/search")
