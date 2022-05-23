@@ -68,15 +68,14 @@ public class BeerController {
     }
 
     // This is redirect to Market page
-    @GetMapping(path="/market")
+    @GetMapping (path="/marketplace")
     public ModelAndView getMarket() {
         
         ModelAndView mvc = new ModelAndView();
         
-        ArrayList<Post> post = new ArrayList<>();
-        post = postRepo.getAllPost();
-        mvc.addObject("allPost", post);
         mvc.setViewName("market");
+        mvc.setStatus(HttpStatus.OK);
+
         return mvc; 
     }
 
