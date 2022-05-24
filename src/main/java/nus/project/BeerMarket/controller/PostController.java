@@ -91,7 +91,7 @@ public class PostController {
         f.setPoster(poster);
         f.setImageType(imageType); 
         
-        mvc.setViewName("postResult");
+        mvc.setViewName("postresult");
         Integer updCount = postRepo.insertPost(f);
         mvc.addObject("updateCount", updCount);
         mvc.setStatus(HttpStatus.OK);
