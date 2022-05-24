@@ -47,20 +47,22 @@ public class PostController {
         return mvc;
     }
     
-    @GetMapping (path="/{postId}")
-    public ModelAndView getPostById(@PathVariable Integer postId) {
+    // @GetMapping (path="/{postId}")
+    // public ModelAndView getPostById(@PathVariable Integer postId) {
         
-        ModelAndView mvc = new ModelAndView();
-        Optional<Post> opt = postRepo.getPostById(postId);
-        mvc.addObject("post", opt.get());
-        mvc.setViewName("post");
-        mvc.setStatus(HttpStatus.OK);
+    //     ModelAndView mvc = new ModelAndView();
+    //     Optional<Post> opt = postRepo.getPostById(postId);
+    //     mvc.addObject("post", opt.get());
+    //     mvc.setViewName("post");
+    //     mvc.setStatus(HttpStatus.OK);
+
+    //     System.out.println(opt.get());
         
-        logger.info("\r\n Result  >>>>>" + mvc);
+    //     logger.info("\r\n Result  >>>>>" + mvc);
         
-        return mvc;
+    //     return mvc;
         
-    }
+    // }
 
     //accept is what the controller is gonna give me back in the payload
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
