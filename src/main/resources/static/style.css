@@ -102,6 +102,11 @@ body {
     background-size: cover;
 } */
 
+/* Styling for Cheers Gif */
+.cheersGif {
+    text-align: center;
+    display: block;
+}
 
 
 /* Styling for username */
