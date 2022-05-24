@@ -79,22 +79,8 @@ public class BeerTest {
 
     //     assertThat(found.getSearchId(), is(equalTo(id)));
     // }
-    
-    
-	// @Test
-    // void givenEmployees_whenGetEmployees_thenStatus200() throws Exception {
 
-    // createTestBeer("bob");
-
-    // mvc.perform(get("/search/{searchId}")
-    //   .contentType(MediaType.APPLICATION_JSON))
-    //   .andExpect(status().isOk())
-    //   .andExpect(content()
-    //   .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-    //   .andExpect(jsonPath("$[0].name", is("bob")));
-    // }
-
-	//problem
+	//Test 10 (pass)
 	@Test
 	void shouldNotFindBeerById() throws Exception {
 		RequestBuilder req = MockMvcRequestBuilders.get("/search")
@@ -107,12 +93,12 @@ public class BeerTest {
 							.andExpect(view().name("showbeer"))
 							.andReturn();
 		} catch (Exception ex) {
-			System.out.println(">>>>> No such beer found!");
+			System.out.println(">>>>> No such beer found!" + req);
 		}
 		
 	}
 
-		//problem
+    //Test 11 (pass)
 	@Test
 	void shouldFindBeerById() throws Exception {
 		RequestBuilder req = MockMvcRequestBuilders.get("/search")
@@ -125,7 +111,7 @@ public class BeerTest {
 							.andExpect(view().name("showbeer"))
 							.andReturn();
 		} catch (Exception ex) {
-			System.out.println(">>>>> Beer found!!!");
+			System.out.println(">>>>> Beer found!!!" + req);
 		}
 	}
 }

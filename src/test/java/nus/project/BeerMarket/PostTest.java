@@ -20,7 +20,7 @@ public class PostTest {
 
     }
 
-    //test for new post (passed)
+    //Test 12 (pass)
 	@Test
 	void testNewPost(){
 		Post p = new Post();
@@ -32,7 +32,7 @@ public class PostTest {
 		
 	}
 
-	//test to get values from the post (passed)
+	//Test 13 (pass)
 	@Test
 	void testGetValuesPost(){
 		Post p = new Post();
