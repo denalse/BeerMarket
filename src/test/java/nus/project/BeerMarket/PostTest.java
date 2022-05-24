@@ -36,20 +36,20 @@ public class PostTest {
 
 
     //Test 14 (pass)
-    @BeforeEach
-    void setUp() {
-        final String SQL_INSERT_POST =
-        "insert into post (photo, comment, poster, mediatype) values (null, 'hello', 'Tester', 'image/png')";
+    // @BeforeEach
+    // void setUp() {
+    //     final String SQL_INSERT_POST =
+    //     "insert into post (photo, comment, poster, mediatype) values (null, 'hello', 'Tester', 'image/png')";
     
-        temp.update(SQL_INSERT_POST);
-    }
+    //     temp.update(SQL_INSERT_POST);
+    // }
 
-    //Test 13 (pass)
-    @AfterEach
-    void removeSetUp() {
-        final String query = "delete from post where poster = 'Tester'";
-        temp.update(query);
-    }
+    // //Test 13 (pass)
+    // @AfterEach
+    // void removeSetUp() {
+    //     final String query = "delete from post where poster = 'Tester'";
+    //     temp.update(query);
+    // }
     
     //Test 12 (pass)
     @Test
