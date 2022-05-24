@@ -36,7 +36,6 @@ public class Beer {
         this.tips = tips;
     }    
     
-
     public Integer getSearchId() {
         return searchId;
     }

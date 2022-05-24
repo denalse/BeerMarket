@@ -29,7 +29,7 @@ import nus.project.BeerMarket.repository.PostRepository;
 @RequestMapping(path="/")
 public class PostController {
 
-    private Logger logger = LoggerFactory.getLogger(MainController.class);
+    private Logger logger = LoggerFactory.getLogger(PostController.class);
 
     @Autowired
     private PostRepository postRepo;

@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import nus.project.BeerMarket.model.Beer;
-import nus.project.BeerMarket.model.Post;
-import nus.project.BeerMarket.repository.PostRepository;
 import nus.project.BeerMarket.service.BeerService;
 
 
@@ -26,9 +24,7 @@ public class MainController {
     @Autowired
     private BeerService beerSvc;
 
-    @Autowired
-    private PostRepository postRepo;
-    // private Logger logger = LoggerFactory.getLogger(BeerController.class);
+    // private Logger logger = LoggerFactory.getLogger(MainController.class);
 
     public String view() {
         return "index";
@@ -96,7 +92,5 @@ public class MainController {
 
         return mvc;
     }
-
-    // }
     
 }

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,6 +21,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
+import java.io.File;
+import java.nio.file.Files;
 
 
 @SpringBootTest
@@ -143,4 +147,22 @@ class BeerMarketApplicationTests {
 				result.getResponse().getContentAsString()
 						.contains("Login")));
 	}
+
+    //Test 10 (pass)
+    @Test
+	void shouldGetPost() throws Exception {
+		RequestBuilder req = MockMvcRequestBuilders.get("/market");
+
+		MvcResult mvcResult = null;
+		try {
+			mvcResult = mvc.perform(req).andDo(print())
+							.andExpect(status().isOk())
+							.andExpect(view().name("market"))
+							.andReturn();
+		} catch (Exception ex) {
+			System.out.println(">>>>> Post Success!!!" + req);
+		}
+	}
+
 }
+

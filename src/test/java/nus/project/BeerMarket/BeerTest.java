@@ -1,7 +1,6 @@
 package nus.project.BeerMarket;
 
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.junit.Before;
@@ -33,6 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import nus.project.BeerMarket.model.Beer;
 import nus.project.BeerMarket.service.BeerService;
@@ -44,6 +44,8 @@ public class BeerTest {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
+
+	@Autowired
 	private MockMvc mockMvc;
 
 	// @Autowired
@@ -60,24 +62,6 @@ public class BeerTest {
       mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
-	//Test 10 (pass)
-	@Test
-	void shouldNotFindBeerById() throws Exception {
-		RequestBuilder req = MockMvcRequestBuilders.get("/search")
-                .queryParam("searchId", "abc");
-
-		MvcResult mvcResult = null;
-		try {
-			mvcResult = mockMvc.perform(req).andDo(print())
-							.andExpect(status().isOk())
-							.andExpect(view().name("showbeer"))
-							.andReturn();
-		} catch (Exception ex) {
-			System.out.println(">>>>> No such beer found!" + req);
-		}
-		
-	}
-
     //Test 11 (pass)
 	@Test
 	void shouldFindBeerById() throws Exception {
@@ -88,7 +72,7 @@ public class BeerTest {
 		try {
 			mvcResult = mockMvc.perform(req).andDo(print())
 							.andExpect(status().isOk())
-							.andExpect(view().name("showbeer"))
+							.andExpect(view().name("showBeer"))
 							.andReturn();
 		} catch (Exception ex) {
 			System.out.println(">>>>> Beer found!!!" + req);
@@ -96,13 +80,20 @@ public class BeerTest {
 	}
 
 	// @Test
-	// void beerTest() throws Exception {
-	// 	ArrayList<Beer> list = new ArrayList<>();
-		
-	// 	Beer beer = new Beer();
-	// 	beer.getImageUrl();
-    //     beer.getName();
-    //     beer.getDescription();
-    //     beer.getTips();
+	// void getBeerWithIdAndName() {
+
+	// 	List<Beer> beer = beerSvc.getBeer(300, "Tester");
+
+	// }
+
+	// @Test
+	// void getBeerWithIdAndName() {
+	// 	final Beer beer = new Beer();
+
+	// 	beer.setSearchId(300);
+	// 	beer.setName("tester");
+
+	// 	final List<Beer> beers = List.of(beer);
+	// 	when(beerSvc.getBeer(300, "tester")).thenReturn(beers);
 	// }
 }

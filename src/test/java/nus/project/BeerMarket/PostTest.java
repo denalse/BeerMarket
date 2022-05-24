@@ -1,12 +1,16 @@
 package nus.project.BeerMarket;
 
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -99,17 +103,35 @@ public class PostTest {
         Assert.assertEquals((Integer)1, post.getPostId());
     }
 
-	// //Test 13 (pass)
-	// @Test
-	// void testShow() throws SQLException {
-	// 	Post post = new Post();
-	// 	post.setImage(null);
-	// 	post.setComment("test");
-	// 	post.setPoster("Hello");
-	// 	post.setImageType("image/png");
-	// 	post.setPostId(1);
-	// 	assertSame(post.getComment(), "test");
+    // @Test
+	// void insertPostShouldFail() {
+	// 	try {
+	// 		postRepo.insertPost(Post post);
+	// 	} catch (Exception ex) {
+	// 		assertTrue(true);
+	// 		return;
+	// 	}
+
+	// 	fail("Did not throw BFFException when email exists");
+	// }
+
+    // @Test
+    // void getPostById() throws SQLException {
+    //     Optional<Post> post = postRepo.getPostById(2);
+    //     Assertions.assertEquals(2, post.get());
     // }
+
+	//Test 13 (pass)
+	@Test
+	void insetPost() throws SQLException {
+		Post post = new Post();
+		post.setImage(null);
+		post.setComment("test");
+		post.setPoster("Hello");
+		post.setImageType("image/png");
+		post.setPostId(1);
+		assertSame(post.getComment(), "test");
+    }
 
 	// @Test
 	// void shouldNotGetPost() {
