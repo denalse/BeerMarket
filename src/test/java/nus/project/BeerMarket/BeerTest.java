@@ -60,26 +60,6 @@ public class BeerTest {
       mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
-    // @Test
-    // void testBeerId() {
-        
-    //     when(mockArrayList.get(0)).thenReturn(1000);
-    //     Integer result = mockArrayList.get(0);
-        
-    //     assertEquals("Should not be found", "1000", result);
-
-    //     verify(mockArrayList).get(0);
-    // }
-
-    // @Test
-    // void whenValid_ShouldbeFound() throws AssertionError {
-    //     Integer id = 1000;
-
-    //     Beer found = (Beer) beerSvc.getBeer(id, "name");
-
-    //     assertThat(found.getSearchId(), is(equalTo(id)));
-    // }
-
 	//Test 10 (pass)
 	@Test
 	void shouldNotFindBeerById() throws Exception {
