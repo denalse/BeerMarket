@@ -9,6 +9,7 @@ public class Beer {
     private String name;
     private String description;
     private String tips;
+    private Integer searchId;
 
     public String getImageUrl() {
         return imageUrl;
@@ -33,6 +34,14 @@ public class Beer {
     }
     public void setTips(String tips) {
         this.tips = tips;
+    }    
+    
+
+    public Integer getSearchId() {
+        return searchId;
+    }
+    public void setSearchId(Integer searchId) {
+        this.searchId = searchId;
     }
 
     public static List<Beer> beer() {

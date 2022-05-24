@@ -24,6 +24,10 @@ public class BeerService {
 
     private Logger logger = LoggerFactory.getLogger(BeerService.class);
     
+    public List<Beer> getBeer(Integer searchId, String name) {
+        return getBeer(searchId, name);
+    }
+    
     public List<Beer> getBeer(Integer searchId, String imageUrl, String name, String description, String tips) {
         return getBeer(searchId, imageUrl, name, description, tips);
     }
