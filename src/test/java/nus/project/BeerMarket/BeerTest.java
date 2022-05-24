@@ -114,4 +114,15 @@ public class BeerTest {
 			System.out.println(">>>>> Beer found!!!" + req);
 		}
 	}
+
+	// @Test
+	// void beerTest() throws Exception {
+	// 	ArrayList<Beer> list = new ArrayList<>();
+		
+	// 	Beer beer = new Beer();
+	// 	beer.getImageUrl();
+    //     beer.getName();
+    //     beer.getDescription();
+    //     beer.getTips();
+	// }
 }
