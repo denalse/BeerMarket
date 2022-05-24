@@ -8,5 +8,7 @@ Jacoco coverage badge
 
 <!-- Go to the space name, coverage>paf2.giphy>jacoco.svg>copy url -->
 
-![Coverage](https://beermarket.sgp1.digitaloceanspaces.com/coverage/BeerMarket/jacoco.svg?branch=master)
+<!-- ![Coverage](https://beermarket.sgp1.digitaloceanspaces.com/coverage/BeerMarket/jacoco.svg?branch=master) -->
+
+![Coverage](https://beermarket.sgp1.digitaloceanspaces.com/coverage/BeerMarket/jacoco.svg)
 
