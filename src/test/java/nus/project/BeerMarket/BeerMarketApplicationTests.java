@@ -2,11 +2,13 @@ package nus.project.BeerMarket;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -147,6 +149,45 @@ class BeerMarketApplicationTests {
 			System.out.println(">>>>> Post Success!!!" + req);
 		}
 	}
+
+    @Test
+    void shouldGetPostById() {
+        /* 
+        pls fill in the /post/postid --> the postid you want to test so that it will pass
+        .get() if GetMapping; .post if PostMapping
+        if PostMapping, then it's contentType() and not accept()
+        so in here, we are building the req
+        */ 
+        RequestBuilder req = MockMvcRequestBuilders.get("/post/1")
+            .accept(MediaType.TEXT_HTML_VALUE);
+        // .get() if GetMapping; .post if PostMapping
+        // if PostMapping, then it's contentType() and not accept()
+        // so in here, we are building the req 
+
+        MvcResult result = null;
+
+        try {
+            result = mvc.perform(req).andReturn();
+        } catch (Exception ex) {
+            fail("cannot call controller", ex);
+            return;
+        }
+
+        String payload = null;
+        // this payload is a modelandview because that is what you are returning
+        // so if you print this payload, it should print the html page you want
+
+        try {
+            payload = result.getResponse().getContentAsString();
+            System.out.println(">>>>> payload: " + payload);
+        } catch (Exception ex) {
+            fail("cannot get payload", ex);
+            return;
+        }
+
+        assertTrue(payload.contains("Description"));
+
+    }
 
 }
 

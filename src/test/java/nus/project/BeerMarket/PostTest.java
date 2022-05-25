@@ -4,8 +4,6 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.when;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,24 +19,23 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.mock.web.MockMultipartFile;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import nus.project.BeerMarket.model.Post;
+import nus.project.BeerMarket.repository.PostRepository;
 
 import nus.project.BeerMarket.model.Post;
 import nus.project.BeerMarket.repository.PostRepository;
@@ -59,8 +56,6 @@ public class PostTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    private Post post;
 
 
     //Test Start (pass)
@@ -139,89 +134,41 @@ public class PostTest {
 		assertSame(post.getComment(), "test");
     }
 
-    // Test 13 (pass)
-	@Test
-	void shouldGetPostId() throws Exception {
+    // Test 15 ()
+    @Test
+    void getPost() throws Exception {
 
-        Post post = new Post();
-        Post postId = new Post();
-        post.setPostId(1);
+        MockMultipartFile image = new MockMultipartFile("image", "Hello.txt", MediaType.TEXT_PLAIN_VALUE, "Hello, World!".getBytes());
 
-        // doReturn(Optional.empty()).when(postRepo).getPostById(null);
-        Mockito.when(postRepo.getPostById(Mockito.anyInt()))
-                .thenReturn(Optional.of(post));
-
-        mockMvc.perform(get("/post/" + postId, 1)).andDo(print())
-                // .andExpect(view().name("post"))
-                // Validate the response code
-                .andExpect(status().is4xxClientError());
-                // .andReturn();
-     
-            // assertTrue(true);
+        RequestBuilder req = MockMvcRequestBuilders.post("/post")
+            .accept(MediaType.MULTIPART_FORM_DATA_VALUE)
+            .param("image", "image")
+            .param("comment", "test1")
+            .param("poster", "test1");
+        
+        mockMvc.perform(req).andDo(print())
+            .andExpect(status().is4xxClientError());
     }
 
-    // @Test
-    // void shouldGetPost() {
-    //     RequestBuilder req = MockMvcRequestBuilders.get("/post/1")
-    //         .accept(MediaType.TEXT_HTML_VALUE);
 
-    //     MvcResult mvcResult = null;
-    //         try {
-    //             mvcResult = mockMvc.perform(req).andReturn();
-
-    //         } catch (Exception ex) {
-    //             fail("Unable to call controller", ex);
-    //             return;
-    //         }
-
-    //     String payload = null;
-
-    //         try {
-    //             payload = mvcResult.getResponse().getContentAsString();
-    //             System.out.println(">>>>>> PAYLOAD: " + payload);
-    //         } catch (Exception ex) {
-    //             fail("Unable to get payload", ex);
-    //             return;
-    //         }
-    //     assertTrue(payload.contains("Description"));
-    // }
-
-
-    // // Test 15 ()
-    // @Test
-    // void getPost() throws Exception {
-
-    //     MockMultipartFile image = new MockMultipartFile("image", "Hello.txt", MediaType.TEXT_PLAIN_VALUE, "Hello, World!".getBytes());
-
-    //     RequestBuilder req = MockMvcRequestBuilders.post("/post")
-    //         .accept(MediaType.MULTIPART_FORM_DATA_VALUE)
-    //         .param("image", "image")
-    //         .param("comment", "test1")
-    //         .param("poster", "test1");
+    // Test 14 (pass)
+    @Test
+	void shouldGetRestPostId() throws Exception {
+        Integer postId = 1;
+        RequestBuilder req = MockMvcRequestBuilders.get("/post/" + postId + "/image");
         
-    //     mockMvc.perform(req).andDo(print())
-    //         .andExpect(status().is4xxClientError());
-    // }
+        // Optional<Post> opt = postRepo.getPostById(postId);
+        // Post post = opt.get();
+
+        MvcResult mvcResult = null;
 
 
-    // // Test 14 (pass)
-    // @Test
-	// void shouldGetRestPostId() throws Exception {
-    //     Integer postId = 1;
-    //     RequestBuilder req = MockMvcRequestBuilders.get("/post/" + postId + "/image");
-        
-    //     // Optional<Post> opt = postRepo.getPostById(postId);
-    //     // Post post = opt.get();
+			 mockMvc.perform(req).andDo(print())
+							.andExpect(status().isNotFound());
+                            // .andExpect(model().attribute("post", "opt.get()"))
+							// .andExpect(view().name("post"))
+							// .andReturn();
 
-    //     MvcResult mvcResult = null;
-
-
-	// 		 mockMvc.perform(req).andDo(print())
-	// 						.andExpect(status().isNotFound());
-    //                         // .andExpect(model().attribute("post", "opt.get()"))
-	// 						// .andExpect(view().name("post"))
-	// 						// .andReturn();
-
-    // }
+    }
 
 }
