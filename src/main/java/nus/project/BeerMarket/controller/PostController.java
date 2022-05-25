@@ -1,7 +1,6 @@
 package nus.project.BeerMarket.controller;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Optional;
 
 import org.slf4j.*;
@@ -49,7 +48,7 @@ public class PostController {
     // }
     
     @GetMapping (path="/post/{postId}")
-    public ModelAndView getPostById(@PathVariable Integer postId) {
+    public ModelAndView getPostId(@PathVariable Integer postId) {
         
         ModelAndView mvc = new ModelAndView();
         Optional<Post> opt = postRepo.getPostById(postId);

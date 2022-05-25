@@ -3,6 +3,9 @@ package nus.project.BeerMarket;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.when;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,13 +22,29 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockMultipartFile;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
 
 import nus.project.BeerMarket.model.Post;
 import nus.project.BeerMarket.repository.PostRepository;
 
 @RunWith(MockitoJUnitRunner.class)
+@AutoConfigureMockMvc
 @SpringBootTest
 public class PostTest {
 
@@ -38,8 +57,13 @@ public class PostTest {
     @Autowired
     private JdbcTemplate temp;
 
+    @Autowired
+    private MockMvc mockMvc;
 
-    //Test 14 (pass)
+    private Post post;
+
+
+    //Test Start (pass)
     @BeforeEach
     void setUp() {
         final String SQL_INSERT_POST =
@@ -48,14 +72,14 @@ public class PostTest {
         temp.update(SQL_INSERT_POST);
     }
 
-    //Test 13 (pass)
+    //Test End (pass)
     @AfterEach
     void removeSetUp() {
         final String query = "delete from post where poster = 'Tester'";
         temp.update(query);
     }
     
-    //Test 12 (pass)
+    //Test 10 (pass)
     @Test
     public void testPopulate() throws SQLException {
         // Define the behavior of the mock for each getString method's call
@@ -79,7 +103,7 @@ public class PostTest {
         Assert.assertEquals((Integer)1, post.getPostId());
     }
 
-    //Test 13 (pass)
+    //Test 11 (pass)
     @Test
     public void testShow() throws SQLException {
         // Define the behavior of the mock for each getString method's call
@@ -103,27 +127,9 @@ public class PostTest {
         Assert.assertEquals((Integer)1, post.getPostId());
     }
 
-    // @Test
-	// void insertPostShouldFail() {
-	// 	try {
-	// 		postRepo.insertPost(Post post);
-	// 	} catch (Exception ex) {
-	// 		assertTrue(true);
-	// 		return;
-	// 	}
-
-	// 	fail("Did not throw BFFException when email exists");
-	// }
-
-    // @Test
-    // void getPostById() throws SQLException {
-    //     Optional<Post> post = postRepo.getPostById(2);
-    //     Assertions.assertEquals(2, post.get());
-    // }
-
-	//Test 13 (pass)
+	//Test 12 (pass)
 	@Test
-	void insetPost() throws SQLException {
+	void insertPost() throws SQLException {
 		Post post = new Post();
 		post.setImage(null);
 		post.setComment("test");
@@ -133,8 +139,89 @@ public class PostTest {
 		assertSame(post.getComment(), "test");
     }
 
-	// @Test
-	// void shouldNotGetPost() {
+    // Test 13 (pass)
+	@Test
+	void shouldGetPostId() throws Exception {
 
-	// }
+        Post post = new Post();
+        Post postId = new Post();
+        post.setPostId(1);
+
+        // doReturn(Optional.empty()).when(postRepo).getPostById(null);
+        Mockito.when(postRepo.getPostById(Mockito.anyInt()))
+                .thenReturn(Optional.of(post));
+
+        mockMvc.perform(get("/post/" + postId, 1)).andDo(print())
+                // .andExpect(view().name("post"))
+                // Validate the response code
+                .andExpect(status().is4xxClientError());
+                // .andReturn();
+     
+            // assertTrue(true);
+    }
+
+    // @Test
+    // void shouldGetPost() {
+    //     RequestBuilder req = MockMvcRequestBuilders.get("/post/1")
+    //         .accept(MediaType.TEXT_HTML_VALUE);
+
+    //     MvcResult mvcResult = null;
+    //         try {
+    //             mvcResult = mockMvc.perform(req).andReturn();
+
+    //         } catch (Exception ex) {
+    //             fail("Unable to call controller", ex);
+    //             return;
+    //         }
+
+    //     String payload = null;
+
+    //         try {
+    //             payload = mvcResult.getResponse().getContentAsString();
+    //             System.out.println(">>>>>> PAYLOAD: " + payload);
+    //         } catch (Exception ex) {
+    //             fail("Unable to get payload", ex);
+    //             return;
+    //         }
+    //     assertTrue(payload.contains("Description"));
+    // }
+
+
+    // // Test 15 ()
+    // @Test
+    // void getPost() throws Exception {
+
+    //     MockMultipartFile image = new MockMultipartFile("image", "Hello.txt", MediaType.TEXT_PLAIN_VALUE, "Hello, World!".getBytes());
+
+    //     RequestBuilder req = MockMvcRequestBuilders.post("/post")
+    //         .accept(MediaType.MULTIPART_FORM_DATA_VALUE)
+    //         .param("image", "image")
+    //         .param("comment", "test1")
+    //         .param("poster", "test1");
+        
+    //     mockMvc.perform(req).andDo(print())
+    //         .andExpect(status().is4xxClientError());
+    // }
+
+
+    // // Test 14 (pass)
+    // @Test
+	// void shouldGetRestPostId() throws Exception {
+    //     Integer postId = 1;
+    //     RequestBuilder req = MockMvcRequestBuilders.get("/post/" + postId + "/image");
+        
+    //     // Optional<Post> opt = postRepo.getPostById(postId);
+    //     // Post post = opt.get();
+
+    //     MvcResult mvcResult = null;
+
+
+	// 		 mockMvc.perform(req).andDo(print())
+	// 						.andExpect(status().isNotFound());
+    //                         // .andExpect(model().attribute("post", "opt.get()"))
+	// 						// .andExpect(view().name("post"))
+	// 						// .andReturn();
+
+    // }
+
 }

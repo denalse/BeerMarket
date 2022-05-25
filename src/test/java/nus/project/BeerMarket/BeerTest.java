@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.junit.Assert.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -48,21 +48,21 @@ public class BeerTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	// @Autowired
-	// private JdbcTemplate temp;
-
 	@Autowired
 	private BeerService beerSvc;
 
-    @Mock
-    private ArrayList<Integer> mockArrayList;
+    // @Mock
+    // private ArrayList<Integer> mockArrayList;
+
+	@Mock
+	private List<Beer> List;
 
     @Before
     public void setUp() {
       mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
-    //Test 11 (pass)
+    //Test 9 (pass)
 	@Test
 	void shouldFindBeerById() throws Exception {
 		RequestBuilder req = MockMvcRequestBuilders.get("/search")
@@ -80,20 +80,12 @@ public class BeerTest {
 	}
 
 	// @Test
-	// void getBeerWithIdAndName() {
-
-	// 	List<Beer> beer = beerSvc.getBeer(300, "Tester");
-
+	// void testGetBeer() {
+	// 	final Integer searchId;
+	// 	final String imageUrl;
+    // when(beerSvc.getBeer(searchId, imageUrl)).thenReturn(List<Beer> List);
+    // assertTrue(beerSvc.getBeer(searchId).isEmpty());
+    // verify(beerSvc).getBeer(1);
 	// }
 
-	// @Test
-	// void getBeerWithIdAndName() {
-	// 	final Beer beer = new Beer();
-
-	// 	beer.setSearchId(300);
-	// 	beer.setName("tester");
-
-	// 	final List<Beer> beers = List.of(beer);
-	// 	when(beerSvc.getBeer(300, "tester")).thenReturn(beers);
-	// }
 }

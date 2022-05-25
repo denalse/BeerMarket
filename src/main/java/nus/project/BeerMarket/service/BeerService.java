@@ -51,7 +51,7 @@ public class BeerService {
 
             ArrayList<Beer> list = new ArrayList<>();
 
-            for (int i=0; i<array.size(); i++) {
+            for (int i=0; i<array.size();) {
             
                 Beer b = new Beer();
                 JsonObject obj = array.getJsonObject(i);
