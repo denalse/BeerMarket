@@ -189,5 +189,44 @@ class BeerMarketApplicationTests {
 
     }
 
+    @Test
+    void shouldGetBeerPost() {
+        /* 
+        pls fill in the /post/postid --> the postid you want to test so that it will pass
+        .get() if GetMapping; .post if PostMapping
+        if PostMapping, then it's contentType() and not accept()
+        so in here, we are building the req
+        */ 
+        RequestBuilder req = MockMvcRequestBuilders.post("/post")
+            .accept(MediaType.MULTIPART_FORM_DATA_VALUE);
+        // .get() if GetMapping; .post if PostMapping
+        // if PostMapping, then it's contentType() and not accept()
+        // so in here, we are building the req 
+
+        MvcResult result = null;
+
+        try {
+            result = mvc.perform(req).andReturn();
+        } catch (Exception ex) {
+            fail("cannot call controller", ex);
+            return;
+        }
+
+        String payload = null;
+        // this payload is a modelandview because that is what you are returning
+        // so if you print this payload, it should print the html page you want
+
+        try {
+            payload = result.getResponse().getContentAsString();
+            System.out.println(">>>>> payload: " + payload);
+        } catch (Exception ex) {
+            fail("cannot get payload", ex);
+            return;
+        }
+
+        assertFalse(payload.contains("Uploaded"));
+
+    }
+
 }
 

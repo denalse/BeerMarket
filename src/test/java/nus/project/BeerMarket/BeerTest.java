@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -57,12 +58,12 @@ public class BeerTest {
 	@Mock
 	private List<Beer> List;
 
-    @Before
+    // @Before
     public void setUp() {
       mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
-    //Test 9 (pass)
+    // Test 9 (pass)
 	@Test
 	void shouldFindBeerById() throws Exception {
 		RequestBuilder req = MockMvcRequestBuilders.get("/search")
@@ -77,6 +78,14 @@ public class BeerTest {
 		} catch (Exception ex) {
 			System.out.println(">>>>> Beer found!!!" + req);
 		}
+	}
+
+	@Test
+	void getBeerPass() {
+
+		final Integer searchId = 1;
+		final String imageUrl = "test/png";
+		assertNotEquals("Success in getBeer", searchId, imageUrl );
 	}
 
 	// @Test
